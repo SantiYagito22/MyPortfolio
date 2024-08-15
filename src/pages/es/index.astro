@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import LanguagePicker from '../../components/LanguagePicker.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Portfolio Santi">
+  <main class='theme dark'>
+    <div class="h-screen w-screen flex flex-col items-center bg-background-light dark:bg-background-dark">
+      <button id="themeButton" class="dis bg-background-red text-white">ESPAÑOL</button>
+      <LanguagePicker />
+    </div>
+  </main>
+</Layout>

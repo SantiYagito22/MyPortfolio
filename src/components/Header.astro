@@ -1,0 +1,11 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const sections = [t('nav.home'), t('nav.experience'), t('nav.education'), t('nav.projects'), t('nav.skills')]
+---
+
+<div class="w-full flex items-center justify-center py-4">
+  
+</div>

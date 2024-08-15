@@ -1,0 +1,51 @@
+---
+import { LANGUAGES } from "../i18n/ui";
+import { useTranslatedPath, getLangFromUrl } from "../i18n/utils";
+import Chevron from "@/components/icons/Chevron.astro";
+
+const route = Astro.url;
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+const currentLocaleData = LANGUAGES[lang];
+
+const otherLocales = Object.values(LANGUAGES).filter(
+  (locale) => locale.code !== lang
+);
+
+
+---
+
+<div class="relative inline-block text-left">
+  <div
+    class="group text-headline-light dark:text-headline-dark rounded-md text-xs font-semibold bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-[#ecd2b7] hover:dark:bg-[#56565b] transition-all"
+  >
+    <button
+      type="button"
+      class="inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
+      aria-expanded="true"
+      aria-haspopup="true"
+    >
+      <currentLocaleData.flag />
+      {currentLocaleData.name}
+      <Chevron class="-mr-1 h-5 w-5 text-headline-light dark:text-headline-dark group-hover:rotate-180 transition-all duration-200" />
+    </button>
+    <ul
+      class="group-hover:block group-hover:animate-fade-down hidden pt-0.5 absolute w-full"
+    >
+      {
+        otherLocales.map((locale) => (
+          <li class="py-[2px]">
+            <a 
+              class="rounded-md bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-[#ecd2b7] hover:dark:bg-[#56565b] whitespace-nowrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
+              href={translatePath('/', locale.code)}
+            >
+              <locale.flag />
+              {locale.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
