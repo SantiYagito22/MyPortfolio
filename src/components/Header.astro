@@ -8,8 +8,8 @@ const t = useTranslations(lang);
 const sections = [t('nav.home'), t('nav.experience'), t('nav.education'), t('nav.projects'), t('nav.skills')]
 ---
 
-<div class="w-full fixed flex justify-center py-4">
-  <ul class="flex items-center gap-12">
+<div class="w-full flex justify-center py-4">
+  <ul class="flex flex-col gap-5 items-center sm:flex-row md:gap-12">
     {
       sections.map((section) => (
         <li class="text-lg text-headline-light dark:text-headline-dark font-medium">

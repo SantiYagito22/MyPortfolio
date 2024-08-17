@@ -1,12 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import Header from '@/components/Header.astro'
+import Sections from "@/components/Sections/Sections.astro"
 ---
 
 <Layout title="Portfolio Santi">
   <main class='theme dark'>
-    <div class="h-screen w-screen flex flex-col items-center bg-background-light dark:bg-background-dark">
+    <div class="h-screen w-screen bg-background-light dark:bg-background-dark">
       <Header />
+      <Sections />
     </div>
   </main>
 </Layout>

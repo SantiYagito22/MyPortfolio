@@ -29,13 +29,19 @@ export const ui = {
     'nav.experience': 'Experience',
     'nav.projects': 'Projects',
 		'nav.education': 'Education',
-		'nav.skills': 'Skills'
+		'nav.skills': 'Skills',
+		'acc.languageButton': 'Change Language',
+		'acc.switchDark': 'Change To Dark Mode',
+		'acc.switchLight': 'Change To Light Mode'
   },
   es: {
     'nav.home': 'Inicio',
     'nav.experience': 'Experiencia',
     'nav.projects': 'Proyectos',
 		'nav.education': 'Educación',
-		'nav.skills': 'Habilidades'
+		'nav.skills': 'Habilidades',
+		'acc.languageButton': 'Cambiar Idioma',
+		'acc.switchDark': 'Cambiar A Modo Oscuro',
+		'acc.switchLight': 'Cambiar A Modo Claro'
   },
 } as const;
