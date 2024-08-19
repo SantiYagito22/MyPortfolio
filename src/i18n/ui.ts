@@ -32,7 +32,8 @@ export const ui = {
 		'nav.skills': 'Skills',
 		'acc.languageButton': 'Change Language',
 		'acc.switchDark': 'Change To Dark Mode',
-		'acc.switchLight': 'Change To Light Mode'
+		'acc.switchLight': 'Change To Light Mode',
+		'acc.photo': 'Santiago\'s Photo'
   },
   es: {
     'nav.home': 'Inicio',
@@ -42,6 +43,7 @@ export const ui = {
 		'nav.skills': 'Habilidades',
 		'acc.languageButton': 'Cambiar Idioma',
 		'acc.switchDark': 'Cambiar A Modo Oscuro',
-		'acc.switchLight': 'Cambiar A Modo Claro'
+		'acc.switchLight': 'Cambiar A Modo Claro',
+		'acc.photo': 'Foto de Santiago'
   },
 } as const;

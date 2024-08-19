@@ -1,16 +1,19 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
+
+const url = Astro.url
+const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
+
 ---
 
-<label class="swap swap-rotate">
-  <input type="checkbox" aria-label={t("acc.switchLight")} />
+<label class="swap hover:opacity-80 hover:scale-105">
+  <input class="appearance-none" type="checkbox" aria-label={t("acc.switchLight")} />
 
   <svg
     id="moon"
-    class="swap-off swap-on h-10 w-10 fill-current text-headline-light dark:text-headline-dark"
+    class= "h-10 w-10 fill-current text-transparent dark:text-headline-dark",
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -22,7 +25,7 @@ const t = useTranslations(lang);
 
   <svg
     id="sun"
-    class="swap-on swap-off h-10 w-10 fill-current text-headline-light dark:text-headline-dark"
+    class="h-10 w-10 fill-current text-headline-light dark:text-transparent",
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -33,55 +36,39 @@ const t = useTranslations(lang);
   </svg>
 </label>
 
+<script is:inline>
+
+</script>
 <script>
   import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
 
   const url = new URL(window.location.href.toString());
   const lang = getLangFromUrl(url);
   const t = useTranslations(lang);
-
+  
   const themeButton = document.querySelector("input");
-  const main = document.querySelector(".theme");
-  const sunIcon = document.querySelector("#sun")
-  const moonIcon = document.querySelector("#moon")
 
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme) {
-    main.classList.toggle("dark", savedTheme === "dark");
-    updateIcon(savedTheme === "dark")
-    updateAriaLabel(savedTheme)
-  }
-
+ 
   document.addEventListener("DOMContentLoaded", () => {
     themeButton?.addEventListener("click", () => {
-      const isDarkMode = main.classList.toggle("dark");
-      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-      updateAriaLabel(isDarkMode ? 'dark' : 'light')
+      const isDark = document.documentElement.classList.value === "dark";
+      if (isDark) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+      updateAriaLabel(!isDark ? "dark" : "light");
     });
   });
 
   function updateAriaLabel(currentTheme: string) {
-      if (currentTheme === "dark") {
-        themeButton.ariaLabel = t("acc.switchLight");
-      } else {
-        themeButton.ariaLabel = t("acc.switchDark");
-      }
-    }
-
-
-  function updateIcon(isDarkMode : boolean){
-    if(isDarkMode){
-      moonIcon.classList.remove('swap-on')
-      moonIcon.classList.add('swap-off')
-      sunIcon.classList.remove('swap-off')
-      sunIcon.classList.add('swap-on')
-    }
-    else{
-      moonIcon.classList.remove('swap-off')
-      moonIcon.classList.add('swap-on')
-      sunIcon.classList.remove('swap-on')
-      sunIcon.classList.add('swap-off')
+    if (currentTheme === "dark") {
+      themeButton.ariaLabel = t("acc.switchLight");
+    } else {
+      themeButton.ariaLabel = t("acc.switchDark");
     }
   }
 </script>

@@ -3,9 +3,6 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Quicksand", "sans-serif"],
-      },
       keyframes: {
         "fade-down": {
           "0%": { opacity: "0", transform: "translateY(-10px)" },
@@ -80,5 +77,5 @@ export default {
     },
   },
   plugins: [require("daisyui")],
-  darkMode: "class",
+  darkMode:  ['class'],
 };

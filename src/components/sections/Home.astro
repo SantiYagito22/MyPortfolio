@@ -1,3 +1,41 @@
-<div class="bg-red-400">
-  
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import PhotoProfile from "@/components/icons/PhotoProfile.astro";
+import Arrow from "@/components/icons/Arrow.astro";
+import { getI18N } from "@/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+---
+
+<div class="w-[960px]">
+  <div class="flex">
+    <Arrow />
+    <h1
+      class="translate-x-24 translate-y-8 text-4xl font-bold text-headline-light dark:text-headline-dark"
+    >
+      {i18n.WELCOME_TEXT}
+      <span class="text-highlight-light dark:text-highlight-dark"
+        >Santiago Muñoz Castro</span
+      >
+    </h1>
+  </div>
+  <div class="flex md:gap-12 lg:gap-20">
+    <PhotoProfile />
+    <div class="w-96">
+      <h2 class="text-headline-light dark:text-headline-dark font-medium">
+        <span class="font-semibold text-tertiary-light dark:text-tertiary-dark"
+          >{i18n.WORK_POSITION}</span
+        >
+        {i18n.WELCOME_DESCRIPTION}
+        <span class="font-semibold text-tertiary-light dark:text-tertiary-dark"
+          >{i18n.CURRENT_COMPANY}</span>
+      </h2>
+      <h3 class="dark:text-headline-dark font-medium"></h3>
+    </div>
+  </div>
 </div>
