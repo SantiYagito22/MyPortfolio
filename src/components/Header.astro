@@ -1,25 +1,42 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import LanguagePicker from './LanguagePicker.astro';
-import ThemeSwitcher from './ThemeSwitcher.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import LanguagePicker from './LanguagePicker.astro'
+import SimpleLanguagePicker from './SimpleLanguagePicker.astro'
+import ThemeSwitcher from './ThemeSwitcher.astro'
+import HomeIcon from '@/components/icons/HomeIcon.astro'
+import Briefcase from '@/components/icons/Briefcase.astro'
+import AcademicCap from '@/components/icons/AcademicCap.astro'
+import Clipboard from '@/components/icons/Clipboard.astro'
+import SkillIcon from '@/components/icons/SkillIcon.astro'
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const sections = [t('nav.home'), t('nav.experience'), t('nav.education'), t('nav.projects'), t('nav.skills')]
+const sectionsIcons = [HomeIcon, Briefcase, AcademicCap, Clipboard, SkillIcon]
 ---
 
 <div class="w-full flex justify-center py-4">
-  <ul class="flex flex-col gap-5 items-center md:flex-row lg:gap-12">
+  <ul class="flex items-center rounded-full border-2 gap-5 px-6 py-2 border-subHeadline-light dark:border-subHeadline-dark sm:gap-8 md:px-0 md:py-0 md:border-0 md:gap-8 md:flex-row lg:gap-12">
     {
       sections.map((section) => (
-        <li class="text-lg text-headline-light dark:text-headline-dark font-medium">
+        <li class="hidden text-lg text-headline-light dark:text-headline-dark font-medium md:list-item ">
           {section}
+        </li>
+        
+      ))
+    }
+    {
+      sectionsIcons.map((SectionIcon) => (
+        <li class="text-headline-light dark:text-headline-dark font-medium md:hidden">
+          <SectionIcon/>
         </li>
       ))
     }
-    <div class="flex items-center gap-4" >
+    <div class="flex items-center gap-5 border-l md:gap-2 md:border-none">
       <LanguagePicker />
-      <ThemeSwitcher/>
+      <SimpleLanguagePicker />
+      <ThemeSwitcher />
     </div>
   </ul>
+  
 </div>

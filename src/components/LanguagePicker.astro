@@ -1,10 +1,8 @@
 ---
-import { toCodes } from "astro:i18n";
 import { LANGUAGES } from "../i18n/ui";
 import { useTranslatedPath, getLangFromUrl, useTranslations } from "../i18n/utils";
 import Chevron from "@/components/icons/Chevron.astro";
 
-const route = Astro.url;
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
@@ -17,7 +15,7 @@ const otherLocales = Object.values(LANGUAGES).filter(
 
 ---
 
-<div class="relative inline-block text-left">
+<div class="hidden relative text-left md:inline-block">
   <div
     class="group text-headline-light dark:text-headline-dark rounded-md text-xs font-semibold bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-[#ecd2b7] hover:dark:bg-[#56565b] transition-all"
   >
