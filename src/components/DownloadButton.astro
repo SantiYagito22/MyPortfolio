@@ -1,0 +1,32 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { getI18N } from "@/i18n";
+import DownloadIcon from "./icons/DownloadIcon.astro";
+import spanishCV from '/public/documents/Santiago_Muñoz_CV_ES.pdf'
+import englishCV from '/public/documents/Santiago_Muñoz_CV_EN.pdf'
+
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const lang = getLangFromUrl(Astro.url);   
+const t = useTranslations(lang); 
+
+
+const nameSP = 'Santiago_Muñoz_CV_ES.pdf'
+const nameEN = 'Santiago_Muñoz_CV_EN.pdf'
+---
+
+<div
+  class="flex justify-center items-center order-11 md:justify-start md:order-12"
+>
+  <a
+    class="flex items-center justify-center md:justify-start py-3 px-2 gap-x-1 uppercase text-lg w-80 md:w-auto rounded-md select-none text-buttonText-light dark:text-buttonText-dark bg-button-light dark:bg-button-dark hover:bg-button-light/80 dark:hover:bg-button-dark/80 hover:scale-105 active:scale-95 transition"
+    download={currentLocale === 'es' ? nameSP : nameEN }
+    href={currentLocale === 'es' ? spanishCV : englishCV }
+    aria-label={t('acc.downloadCV')}
+  >
+    <DownloadIcon class="size-7" />
+    {i18n.DOWNLOAD_CV}
+  </a>
+</div>

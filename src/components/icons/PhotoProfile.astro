@@ -1,5 +1,11 @@
+---
+import Image from "astro/components/Image.astro"
+import PhotoSantiago from '/public/images/PhotoSantiago.jpg'
+---
+
 <div class="avatar">
+
   <div class="mask mask-hexagon w-36">
-    <img src="https://media.licdn.com/dms/image/D4E03AQFhxHKbutYQvA/profile-displayphoto-shrink_200_200/0/1690650090102?e=2147483647&v=beta&t=jsJ8gaIS1nX1iV6UzXreikFqoJo-haBrshPQLycgq9E" />
+    <Image src={PhotoSantiago} alt='Santiago Muñoz Castro' loading="eager"/>
   </div>
 </div>

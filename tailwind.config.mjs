@@ -12,6 +12,9 @@ export default {
       animation: {
         "fade-down": "fade-down 0.3s ease-out",
       },
+      screens: {
+        'xs': '400px'
+      },
       colors: {
         cardBackground: {
           light: "#f9f4ef",

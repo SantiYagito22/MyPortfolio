@@ -1,0 +1,74 @@
+---
+import CopyIcon from "./icons/CopyIcon.astro";
+import SendIcon from "./icons/sendIcon.astro";
+import { getI18N } from "@/i18n";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+const lang = getLangFromUrl(Astro.url);    
+const t = useTranslations(lang);    
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<div
+  class="flex items-center justify-center gap-x-3 order-12 md:order-11 md:justify-start text-headline-light dark:text-headline-dark"
+>
+  <div
+    class="block rounded py-[10px] bg-cardBackground-light dark:bg-cardBackground-dark rounded-s px-4 font-semibold"
+  >
+    <span id="email" class="no-underline curso">smuncastro@gmail.com</span>
+    <p id="ok" class="hidden whitespace-nowrap text-green-600 dark:text-green-400 font-semibold">
+      {i18n.OK_COPY_CLIPBOARD}
+    </p>
+    <p id="ko" class="hidden whitespace-nowrap text-red-600 dark:text-red-400 font-semibold">
+      {i18n.KO_COPY_CLIPBOARD}
+    </p>
+  </div>
+  <span
+    class="rounded p-2 border cursor-pointer border-headline-light dark:border-headline-dark bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-black/20 dark:hover:bg-white/10 hover:scale-105 transition"
+    id="copy"
+    aria-label={t('acc.copyEmail')}
+  >
+    <CopyIcon class="size-6" aria-hidden="true"/>
+  </span>
+  <a
+    class="rounded p-2 border cursor-pointer border-headline-light dark:border-headline-dark bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-black/20 dark:hover:bg-white/10 hover:scale-105 transition"
+    href="mailto:smuncastro@gmail.com"
+    aria-label={t('acc.sendEmail')}
+  >
+    <SendIcon class="size-6" aria-hidden="true"/>
+  </a>
+  
+</div>
+
+<script>
+  const copyButton = document.querySelector("#copy");
+  const okMessage = document.querySelector("#ok");
+  const koMessage = document.querySelector("#ko");
+  const emailText = document.querySelector("#email");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    copyButton.addEventListener("click", () => {
+      emailText.classList.add("hidden")
+      navigator.clipboard.writeText("smuncastro@gmail.com").then(
+        () => {
+          okMessage.classList.remove("hidden")
+          setTimeout(() => {
+            okMessage.classList.add("hidden");
+            emailText.classList.remove("hidden")
+          }, 2000);
+        },
+        (err) => {
+          console.log("Failed to copy "+err)
+          koMessage.classList.remove("hidden")
+          setTimeout(() => {
+            koMessage.classList.add("hidden");
+            emailText.classList.remove("hidden")
+          }, 2000);
+        }
+      );
+      
+    });
+  });
+</script>

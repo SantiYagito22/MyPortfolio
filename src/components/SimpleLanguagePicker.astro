@@ -19,10 +19,11 @@ const otherLocales = Object.values(LANGUAGES).filter(
 ---
 
 <div class="relative inline-block pl-6 md:hidden">
-  <div class="group">
+  <div>
     <a
       class="flex items-center"
       href={translatePath("/", otherLocales[0].code)}
+      aria-label={t('acc.languageButton')}
     >
       <currentLocaleData.flag />
     </a>

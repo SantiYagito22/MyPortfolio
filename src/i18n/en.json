@@ -2,5 +2,8 @@
   "WELCOME_TEXT": "Hello! I am",
   "WORK_POSITION": "Full Stack Developer 🖥️. ",
   "WELCOME_DESCRIPTION": "From Granada, Spain 🇪🇸. Specialized in web and mobile app development. Currently working in ",
-  "CURRENT_COMPANY": " Fujitsu."
+  "CURRENT_COMPANY": " Fujitsu.",
+  "OK_COPY_CLIPBOARD": "Copied to clipboard!",
+  "KO_COPY_CLIPBOARD": "Failed to copy email!",
+  "DOWNLOAD_CV": "Download CV"
 }

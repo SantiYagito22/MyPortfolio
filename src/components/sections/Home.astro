@@ -1,22 +1,33 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import PhotoProfile from "@/components/icons/PhotoProfile.astro";
-import Arrow from "@/components/icons/Arrow.astro";
-import { getI18N } from "@/i18n";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import PhotoProfile from "@/components/icons/PhotoProfile.astro"
+import Arrow from "@/components/icons/Arrow.astro"
+import { getI18N } from "@/i18n"
+import SocialButton from "../SocialButton.astro"
+import Email from "../Email.astro"
+import DownloadButton from '../DownloadButton.astro'
+import GitHubIcon from "../icons/GitHubIcon.astro"
+import LinkedInIcon from '../icons/LinkedInIcon.astro'    
+import WhatsAppIcon from "../icons/WhatsAppIcon.astro"    
+import ItchIoIcon from "../icons/ItchIoIcon.astro"    
+    
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url);    
+const t = useTranslations(lang);    
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
 ---
 
-<div class="w-[960px]">
+<div class="flex items-center justify-center flex-col gap-10 sm:gap-8 md:block md:w-[900px] lg:w-[960px]">
+  <div class="md:hidden">
+    <PhotoProfile/>
+  </div> 
   <div class="flex">
     <Arrow />
     <h1
-      class="translate-x-24 translate-y-8 text-4xl font-bold text-headline-light dark:text-headline-dark"
+      class="text-xl xs:text-2xl sm:text-4xl md:translate-x-10 md:translate-y-10 lg:translate-x-24 lg:translate-y-8  font-bold text-headline-light dark:text-headline-dark"
     >
       {i18n.WELCOME_TEXT}
       <span class="text-highlight-light dark:text-highlight-dark"
@@ -24,10 +35,12 @@ const i18n = getI18N({ currentLocale });
       >
     </h1>
   </div>
-  <div class="flex md:gap-12 lg:gap-20">
-    <PhotoProfile />
-    <div class="w-96">
-      <h2 class="text-headline-light dark:text-headline-dark font-medium">
+  <div class="flex md:gap-8 lg:gap-20">
+    <div class="hidden md:block ">
+      <PhotoProfile />
+    </div>
+    <div class="flex flex-col gap-y-8 w-72 sm:w-96 md:w-[420px]">
+      <h2 class="text-base text-center sm:text-lg text-headline-light dark:text-headline-dark font-medium md:text-left">
         <span class="font-semibold text-tertiary-light dark:text-tertiary-dark"
           >{i18n.WORK_POSITION}</span
         >
@@ -35,7 +48,22 @@ const i18n = getI18N({ currentLocale });
         <span class="font-semibold text-tertiary-light dark:text-tertiary-dark"
           >{i18n.CURRENT_COMPANY}</span>
       </h2>
-      <h3 class="dark:text-headline-dark font-medium"></h3>
+      <nav class="flex justify-center gap-x-3 xs:gap-x-6 sm:gap-x-3 md:justify-normal">
+        <SocialButton href="https://github.com/SantiYagito22" aria-label={t('acc.gitHubBut')} content="GitHub">
+          <GitHubIcon class="size-6" />
+        </SocialButton>
+        <SocialButton href="https://www.linkedin.com/in/santiagomuncastro" aria-label={t('acc.linkedInBut')} content="LinkedIn">
+          <LinkedInIcon class="size-6" />
+        </SocialButton>
+        <SocialButton href="https://wa.me/34685187838" aria-label={t('acc.whatsAppBut')} content="WhatsApp">
+          <WhatsAppIcon class="size-6" />
+        </SocialButton>
+        <SocialButton href="https://santi-yagito22.itch.io/" aria-label={t('acc.itchIoBut')} content="Itch.io">
+          <ItchIoIcon class="size-7" />
+        </SocialButton>
+      </nav>
+      <DownloadButton />
+      <Email/>
     </div>
   </div>
 </div>
