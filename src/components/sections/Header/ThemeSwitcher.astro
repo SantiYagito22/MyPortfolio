@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import Moon from "./icons/Moon.astro"
-import Sun from "./icons/Sun.astro"
+import Moon from "../../icons/Moon.astro"
+import Sun from "../../icons/Sun.astro"
 
 const url = Astro.url
 const lang = getLangFromUrl(url);
@@ -9,15 +9,15 @@ const t = useTranslations(lang);
 
 ---
 
-<label  for="switcher" class="swap hover:opacity-80 hover:scale-105">
+<label for="switcher" class="hover:opacity-80 hover:scale-105 swap">
   <input id="switcher" class="appearance-none" type="checkbox" aria-label={t("acc.switchLight")} />
-  <Moon />
-  <Sun />
+  <Moon class="size-6 text-transparent dark:text-headline-dark md:size-10"/>
+  <Sun class="size-6 fill-current text-headline-light dark:text-transparent md:size-10"/>
 </label>
 
 
 <script>
-  import { getLangFromUrl, useTranslations } from "../i18n/utils";
+  import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 
   const url = new URL(window.location.href.toString());
@@ -49,3 +49,22 @@ const t = useTranslations(lang);
     }
   }
 </script>
+
+
+<style>
+  .swap{
+    position: relative;
+    display: inline-grid;
+    user-select: none;
+    place-content: center;
+    cursor: pointer;
+  }
+
+  .swap > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: transform, opacity;
+}
+</style>

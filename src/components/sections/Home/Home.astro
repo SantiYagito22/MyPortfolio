@@ -3,13 +3,13 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import PhotoProfile from "@/components/icons/PhotoProfile.astro"
 import Arrow from "@/components/icons/Arrow.astro"
 import { getI18N } from "@/i18n"
-import SocialButton from "../SocialButton.astro"
-import Email from "../Email.astro"
-import DownloadButton from '../DownloadButton.astro'
-import GitHubIcon from "../icons/GitHubIcon.astro"
-import LinkedInIcon from '../icons/LinkedInIcon.astro'    
-import WhatsAppIcon from "../icons/WhatsAppIcon.astro"    
-import ItchIoIcon from "../icons/ItchIoIcon.astro"    
+import SocialButton from "./SocialButton.astro"
+import Email from "./Email.astro"
+import DownloadButton from './DownloadButton.astro'
+import GitHubIcon from "../../icons/GitHubIcon.astro"
+import LinkedInIcon from '../../icons/LinkedInIcon.astro'    
+import WhatsAppIcon from "../../icons/WhatsAppIcon.astro"    
+import ItchIoIcon from "../../icons/ItchIoIcon.astro"    
     
 
 const lang = getLangFromUrl(Astro.url);    
@@ -20,14 +20,14 @@ const i18n = getI18N({ currentLocale });
 
 ---
 
-<div class="flex items-center justify-center flex-col gap-10 sm:gap-8 md:block md:w-[900px] lg:w-[960px]">
+<div class="flex items-center justify-center flex-col gap-10 sm:gap-8 md:block md:w-[760px] lg:w-[960px]">
   <div class="md:hidden">
     <PhotoProfile/>
   </div> 
   <div class="flex">
     <Arrow />
     <h1
-      class="text-xl xs:text-2xl sm:text-4xl md:translate-x-10 md:translate-y-10 lg:translate-x-24 lg:translate-y-8  font-bold text-headline-light dark:text-headline-dark"
+      class="text-xl xs:text-[22px] sm:text-4xl md:translate-x-14 md:translate-y-10 lg:translate-x-24 lg:translate-y-8  font-bold text-headline-light dark:text-headline-dark"
     >
       {i18n.WELCOME_TEXT}
       <span class="text-highlight-light dark:text-highlight-dark"

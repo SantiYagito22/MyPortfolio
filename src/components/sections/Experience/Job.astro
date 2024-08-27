@@ -1,0 +1,98 @@
+---
+import { getI18N } from "@/i18n";
+import LabelTechnology from "@/components/LabelTechnology.astro";
+import type { JobData } from "@/types";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+const jobData: JobData = Astro.props.jobData;
+const isRight = Astro.props.isRight;
+---
+
+<div
+  class:list={[
+    `relative pl-20 pr-5 py-3 w-full lg:px-12  lg:w-2/4`,
+    {
+      "left-0 lg:left-1/2": isRight,
+      "left-0": !isRight,
+    },
+  ]}
+>
+  <div
+    class:list={[
+      "absolute size-12 rounded-full flex justify-center items-center top-8 z-10 bg-cardBackground-light dark:text-headline-dark",
+      {
+        "left-2 lg:-left-6": isRight,
+        "left-2 lg:left-auto lg:-right-6": !isRight,
+      },
+    ]}
+  >
+    <jobData.logo class="size-8" />
+  </div>
+  <div
+    class="relative px-5 py-5 rounded-xl bg-cardBackground-light dark:bg-cardBackground-dark"
+  >
+    <h2
+      class="text-lg xs:text-xl sm:text-2xl font-bold text-tertiary-light dark:text-tertiary-dark"
+    >
+      {jobData.workstation}
+    </h2>
+    <h3
+      class="text-lg sm:text-xl font-semibold text-headline-light dark:text-headline-dark"
+    >
+      {jobData.name}
+    </h3>
+    <small
+      class="inline-block mb-4 font-medium text-headline-light dark:text-headline-dark"
+      >{jobData.startDate} - {jobData.endDate || i18n.CURRENTLY}</small
+    >
+    <p
+      class="text-base sm:text-xl text-paragraph-light dark:text-paragraph-dark"
+    >
+      {jobData.description}
+    </p>
+    {
+      jobData.additionalInfo && (
+        <a
+          href={jobData.additionalInfo.externalLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block mt-3 text-lg sm:text-xl font-semibold cursor-pointer text-tertiary-light/70 dark:text-tertiary-dark/70 hover:text-tertiary-light hover:dark:text-tertiary-dark"
+        >
+          {jobData.additionalInfo.text}
+        </a>
+      )
+    }
+
+    <span
+      class:list={[
+        "size-0 absolute top-7 z-[1]",
+        "arrow",
+        {
+          "-left-[15px] lg:left-auto lg:-right-[15px] border-r-[15px] lg:border-r-0 border-l-0 lg:border-l-[15px] border-r-cardBackground-light dark:border-r-cardBackground-dark lg:border-l-cardBackground-light lg:dark:border-l-cardBackground-dark":
+            !isRight,
+          "-left-[15px] border-r-[15px] border-r-cardBackground-light dark:border-r-cardBackground-dark":
+            isRight,
+        },
+      ]}></span>
+    <ul class="flex flex-wrap gap-3 mt-4">
+      {
+        jobData.technologies.map((Technology) => (
+          <li class="flex">
+            <LabelTechnology name={Technology.name}>
+              <Technology.icon class="size-6" />
+            </LabelTechnology>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  .arrow {
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl } from '../i18n/utils';
-import ThemeHeadScript from '@/components/ThemeHeadScript.astro';
+import ThemeHeadScript from '@/components/sections/Header/ThemeHeadScript.astro';
 
 interface Props {
 	title: string;
@@ -22,7 +22,7 @@ const lang = getLangFromUrl(Astro.url);
 		<title>{title}</title>
 		<ThemeHeadScript />
 	</head>
-	<body class="m-0 p-0">
+	<body class="bg-background-light dark:bg-background-dark">
 		<slot />
 	</body>
 </html>
@@ -63,5 +63,18 @@ const lang = getLangFromUrl(Astro.url);
 
 	* {
 		font-family: 'Quicksand',serif ;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html,body{
+		height: max-content;
+	}
+
+	body{
+		min-height: 100vh;
+		overflow-x: hidden;
+		background-size: cover;
 	}
 </style>

@@ -5,5 +5,13 @@
   "CURRENT_COMPANY": " Fujitsu.",
   "OK_COPY_CLIPBOARD": "Copied to clipboard!",
   "KO_COPY_CLIPBOARD": "Failed to copy email!",
-  "DOWNLOAD_CV": "Download CV"
+  "DOWNLOAD_CV": "Download CV",
+  "FULL_STACK": "Full Stack Developer",
+  "CURRENTLY": "Currently",
+  "AUGUST": "August",
+  "NOVEMBER": "November",
+  "MAY": "May",
+  "FUJITSU_DESCRIPTION": "Developing, maintaining and migrating services for the ATMNow project at CaixaBank. Optimizing code, reducing the number of lines by 50%. Integrating and deploying weekly. Interacting daily with the client using agile methodologies. Proposing and implementing new solutions and logic to enhance the of service of the ATMs.",
+  "FUJITSU_PROJECT": "About the project",
+  "CODEKO_DESCRIPTION": "Developed a fully responsive video call web application and mobile app from scratch. Implemented styling and flow similar to Google Meet. Used WebRTC for real time communication. Used useful libraries such as CallerId to create unique video call rooms."
 }

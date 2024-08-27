@@ -3,9 +3,7 @@ import Image from "astro/components/Image.astro"
 import PhotoSantiago from '/public/images/PhotoSantiago.jpg'
 ---
 
-<div class="avatar">
 
-  <div class="mask mask-hexagon w-36">
-    <Image src={PhotoSantiago} alt='Santiago Muñoz Castro' loading="eager"/>
-  </div>
+<div class="size-40">
+  <Image class="rounded-full" src={PhotoSantiago} alt='Santiago Muñoz Castro' loading="eager"/>
 </div>

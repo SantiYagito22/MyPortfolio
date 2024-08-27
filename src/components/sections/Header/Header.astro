@@ -1,8 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-import LanguagePicker from './LanguagePicker.astro'
-import SimpleLanguagePicker from './SimpleLanguagePicker.astro'
-import ThemeSwitcher from './ThemeSwitcher.astro'
+import LanguagePicker from '../../sections/Header/LanguagePicker.astro'
+import SimpleLanguagePicker from '../../sections/Header/SimpleLanguagePicker.astro'
+import ThemeSwitcher from '../../sections/Header/ThemeSwitcher.astro'
 import HomeIcon from '@/components/icons/HomeIcon.astro'
 import Briefcase from '@/components/icons/Briefcase.astro'
 import AcademicCap from '@/components/icons/AcademicCap.astro'
@@ -15,7 +15,7 @@ const sections = [t('nav.home'), t('nav.experience'), t('nav.education'), t('nav
 const sectionsIcons = [HomeIcon, Briefcase, AcademicCap, Clipboard, SkillIcon]
 ---
 
-<div class="w-full flex justify-center py-4">
+<div class="flex justify-center py-4">
   <ul class="flex items-center rounded-full border-2 gap-5 px-6 py-2 border-subHeadline-light dark:border-subHeadline-dark sm:gap-8 md:px-0 md:py-0 md:border-0 md:gap-8 md:flex-row lg:gap-12">
     {
       sections.map((section) => (
@@ -32,7 +32,7 @@ const sectionsIcons = [HomeIcon, Briefcase, AcademicCap, Clipboard, SkillIcon]
         </li>
       ))
     }
-    <div class="flex items-center gap-5 border-l border-headline-light dark:border-headline-dark md:gap-2 md:border-none">
+    <div class="flex items-center justify-center gap-5 border-l border-headline-light dark:border-headline-dark md:gap-2 md:border-none">
       <LanguagePicker />
       <SimpleLanguagePicker />
       <ThemeSwitcher />
