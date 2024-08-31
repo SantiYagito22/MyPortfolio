@@ -11,23 +11,12 @@ export default {
       },
       animation: {
         "fade-down": "fade-down 0.3s ease-out",
-        "move-line": "move-line 2s linear forwards", //Change time animation depending on the number of companies
-        "move-down": "move-down 300ms linear forwards"
+        "move-line": "move-line 2s linear forwards" //Change time animation depending on the number of companies
       },
       keyframes:{
         'move-line': {
           "0%": {height: 0},
           "100%": {height: '100%'}
-        },
-        "move-down": {
-          "0%": {
-            opacity: 1,
-            transform: 'translateY(-30px)'
-          },
-          "100%": {
-            opacity: 1,
-            transform: 'translateY(0px)'
-          }
         }
       },
       screens: {

@@ -3,6 +3,7 @@ import type { JSX } from 'astro/jsx-runtime';
 type Technology = {
   name: string;
   icon: JSX.Element;
+  colors: string;
 }
 
 type AdditionalInfo = {
@@ -18,5 +19,15 @@ export interface JobData{
   endDate?: string;
   description: string;
   additionalInfo?: AdditionalInfo;
-  technologies: Technology[]
+  technologies: Technology[];
+}
+
+export interface ProjectData{
+  image: ImageMetadata;
+  name: string;
+  description: string;
+  technologies: Technology[];
+  github?: string;
+  preview?: string;
+  importance: number; //1 highest 99 lowest
 }

@@ -1,0 +1,10 @@
+<a
+  {...Astro.props}
+  class="flex rounded-sm border cursor-pointer border-headline-light dark:border-headline-dark justify-center items-center gap-x-2 px-3 py-2 text-headline-light dark:text-headline-dark 
+  bg-black/10 dark:bg-white/5 hover:bg-black/20 dark:hover:bg-white/10 hover:scale-95 transition hover:shadow-xl"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot />
+  <span class="inline">{Astro.props.content}</span>
+</a>

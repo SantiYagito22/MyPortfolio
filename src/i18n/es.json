@@ -6,6 +6,7 @@
   "OK_COPY_CLIPBOARD": "¡Copiado al portapapeles!",
   "KO_COPY_CLIPBOARD": "¡Error al copiar email!",
   "DOWNLOAD_CV": "Descargar CV",
+  "PREVIEW": "Previsualizar",
   "FULL_STACK": "Desarrollador Full Stack",
   "CURRENTLY": "Actualmente",
   "AUGUST": "Agosto",
@@ -13,5 +14,6 @@
   "MAY": "Mayo",
   "FUJITSU_DESCRIPTION": "Desarrollando, manteniendo y migrando servicios para el proyecto ATMNow de CaixaBank. Optimizando código, logrando reducir el número de líneas en un 50%. Integrando y desplegando semanalmente. Interactuando diariamente con el cliente usando metodologías ágiles. Proponiendo e implementando nuevas soluciones y lógicas para mejorar el servicio de los cajeros.",
   "FUJITSU_PROJECT": "Sobre el proyecto",
-  "CODEKO_DESCRIPTION": "Desarrollada una aplicación web y móvil de videollamadas desde cero y totalmente \"responsive\". Implementado con estilo y flujo similar a Google Meet. WebRTC usado para comunicación en tiempo real. Librerías útiles usadas, como CalledId para crear salas de videollamas únicas."
+  "CODEKO_DESCRIPTION": "Desarrollada una aplicación web y móvil de videollamadas desde cero y totalmente \"responsive\". Implementado con estilo y flujo similar a Google Meet. WebRTC usado para comunicación en tiempo real. Librerías útiles usadas, como CalledId para crear salas de videollamas únicas.",
+  "INTERORBITAL_DESCRIPTION": "Juego de supervivencia 2D. Desarrollado en un periodo de 9 meses. Colaborado con un equipo de dos programadores y un artista."
 }

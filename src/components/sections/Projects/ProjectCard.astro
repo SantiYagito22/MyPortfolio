@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import type { ProjectData } from "@/types";
+import LabelTechnology from "@/components/LabelTechnology.astro"
+import LinkButton from "@/components/LinkButton.astro"
+import GitHubIcon from "@/components/icons/GitHubIcon.astro"
+import LinkIcon from '@/components/icons/LinkIcon.astro'
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { getI18N } from "@/i18n"
+
+const projectData: ProjectData = Astro.props.projectData;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<article class="relative rounded-sm md:w-full flex flex-col items-center border border-black dark:border-white md:flex-row md:items-stretch ">
+  <span class="absolute rounded-full border border-black dark:border-white size-12 bg-cardBackground-light dark:bg-cardBackground-dark -top-5 -left-5 flex justify-center items-center text-2xl font-bold text-tertiary-light dark:text-tertiary-dark z-50">{Astro.props.index + 1}</span>
+  <div class="w-full md:w-1/2">
+    <div class="overflow-hidden h-64">
+      <Image
+        class="w-full h-full object-cover zoom transition-transform duration-800 hover:scale-105"
+        src={projectData.image}
+        alt={projectData.name}
+        loading="lazy"
+      />
+    </div>
+  </div>
+  <div
+    class="flex w-full md:w-1/2 rounded-sm gap-y-2 lg:gap-y-3 flex-col p-3 bg-cardBackground-light dark:bg-cardBackground-dark"
+  >
+    <h2 class="text-2xl font-bold text-headline-light dark:text-headline-dark">
+      {projectData.name}
+    </h2>
+    <ul class="flex flex-wrap gap-2">
+      {
+        projectData.technologies.map((Technology) => (
+          <li class="flex">
+            <LabelTechnology
+              name={Technology.name}
+              paddings="px-2 py-[1px]"
+              colors={Technology.colors}
+            >
+              <Technology.icon class="size-3" />
+            </LabelTechnology>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="text-base w-3/4 text-paragraph-light dark:text-paragraph-dark">
+      {projectData.description}
+    </p>
+    <footer class="flex flex-col gap-y-3 gap-x-4 xs:flex-row mt-3 ">
+      {
+        projectData.github && (
+          <LinkButton content="GitHub" href={projectData.github} aria-label={t('acc.ProjectGitHub')}>
+            <GitHubIcon class="size-6"/>
+          </LinkButton>
+        )
+      }
+      {
+        projectData.preview && (
+          <LinkButton content={i18n.PREVIEW} href={projectData.preview} aria-label={t('acc.ProjectPreview')}>
+            <LinkIcon class="size-6" />
+          </LinkButton>
+        )
+      }
+    </footer>
+  </div>
+</article>

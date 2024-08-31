@@ -1,0 +1,73 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { getI18N } from "@/i18n"
+import type { ProjectData } from "@/types"
+import Interorbital from "/public/images/Interorbital.jpg"
+import ProjectCard from "./ProjectCard.astro"
+import GitHubIcon from "@/components/icons/GitHubIcon.astro"
+import UnityIcon from "@/components/icons/UnityIcon.astro"
+import CHastagIcon from "@/components/icons/CHastagIcon.astro"
+import SeedIcon from "@/components/icons/RocketIcon.astro"
+import SandClock from "@/components/icons/SandClock.astro"
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+
+let projects: ProjectData[] = [
+  {
+    image: Interorbital,
+    name: "InterOrbital",
+    description: i18n.INTERORBITAL_DESCRIPTION,
+    technologies: [
+      {
+        name: "C#",
+        icon: CHastagIcon,
+        colors: "text-white bg-[#9B4F9680]",
+      },
+      {
+        name: "Unity",
+        icon: UnityIcon,
+        colors: "text-white bg-[#00000080]",
+      },
+      {
+        name: "GitHub",
+        icon: GitHubIcon,
+        colors: "text-white bg-[#18171780]",
+      },
+    ],
+    github: "https://github.com/LionDev27/InterOrbital",
+    preview: "https://clawsomegames.itch.io/interorbital",
+    importance: 99
+  }
+];
+
+
+projects.sort((a : ProjectData ,b : ProjectData) => a.importance - b.importance)
+---
+
+<div
+  class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]"
+>
+  <h1
+    class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
+  >
+    {t("nav.projects")}
+  </h1>
+  <div class="relative  flex flex-col px-10 md:px-0 gap-y-36 before:content-[''] py-36 before:absolute before:top-0 before:bottom-0 before:left-1/2 before:w-[2px] before:bg-cardBackground-light before:dark:bg-headline-dark before:-translate-x-1/2 before:-z-[1]">
+    <div class="absolute size-14 bg-cardBackground-light dark:bg-headline-dark rounded-full z-[1] left-1/2 top-0 -translate-x-1/2 flex justify-center items-center">
+      <SandClock class="size-8"/>
+    </div>
+    {
+      projects.map((project: ProjectData, key: number) => (
+        <ProjectCard projectData={project} index={key}/>
+      ))
+    }
+    <div class="absolute size-14 bg-cardBackground-light dark:bg-headline-dark  rounded-full z-[1] left-1/2 bottom-0 -translate-x-1/2 flex justify-center items-center">
+      <SeedIcon class="size-10"/>
+    </div>
+  </div>
+</div>

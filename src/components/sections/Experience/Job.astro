@@ -80,7 +80,7 @@ const isRight = Astro.props.isRight;
       {
         jobData.technologies.map((Technology) => (
           <li class="flex">
-            <LabelTechnology name={Technology.name}>
+            <LabelTechnology name={Technology.name} paddings= "px-3 py-2" colors={Technology.colors} classSpan="hidden xs:inline" >
               <Technology.icon class="size-6" />
             </LabelTechnology>
           </li>

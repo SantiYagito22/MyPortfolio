@@ -14,6 +14,8 @@ import GitHubIcon from '@/components/icons/GitHubIcon.astro'
 import ConfluenceIcon from '@/components/icons/ConfluenceIcon.astro'
 import JenkinsIcon from '@/components/icons/JenkinsIcon.astro'
 import JiraIcon from '@/components/icons/JiraIcon.astro'
+import FigmaIcon from '@/components/icons/FirgmaIcon.astro'
+
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -35,27 +37,38 @@ const companiesData : JobData[] = [
     technologies: [
       {
         name: "React", 
-        icon: ReactIcon
-      },
-      {
-        name: "CSS",
-        icon: CSSIcon
+        icon: ReactIcon,
+        colors: "text-white bg-[#20232A]"
       },
       {
         name: "JavaScript",
-        icon: JavaScriptIcon
+        icon: JavaScriptIcon,
+        colors: "text-white bg-[#F7DF1E80]"
+      },
+      {
+        name: "CSS",
+        icon: CSSIcon,
+        colors: "text-white bg-[#1572B680]"
       },
       {
         name: "GitLab",
-        icon: GitLabIcon
+        icon: GitLabIcon,
+        colors: "text-white bg-[#FC6D2680]"
       },
       {
         name: 'Confluence',
-        icon: ConfluenceIcon
+        icon: ConfluenceIcon,
+        colors: "text-white bg-[#172B4D80]"
       },
       {
         name: 'Jenkins',
-        icon: JenkinsIcon
+        icon: JenkinsIcon,
+        colors: "text-white bg-[#D2493980]"
+      },
+      {
+        name: 'Figma',
+        icon: FigmaIcon,
+        colors: "text-white bg-[#0ACF8380]"
       }
     ]
   },
@@ -69,31 +82,38 @@ const companiesData : JobData[] = [
     technologies: [
       {
         name: "React", 
-        icon: ReactIcon 
-      },
-      {
-        name: "CSS",
-        icon: CSSIcon
+        icon: ReactIcon,
+        colors: "text-white bg-[#20232A]"
       },
       {
         name: "JavaScript",
-        icon: JavaScriptIcon
+        icon: JavaScriptIcon,
+        colors: "text-white bg-[#F7DF1E80]"
+      },
+      {
+        name: "CSS",
+        icon: CSSIcon,
+        colors: "text-white bg-[#1572B680]"
       },
       {
         name: "React Native", 
-        icon: ReactIcon 
+        icon: ReactIcon,
+        colors: "text-white bg-[#20232A]" 
       },
       {
         name: "TypeScript",
-        icon: TypeScriptIcon
+        icon: TypeScriptIcon,
+        colors: "text-white bg-[#3178C680]"
       },
       {
         name: "GitHub",
-        icon: GitHubIcon
+        icon: GitHubIcon,
+        colors: "text-white bg-[#18171780]"
       },
       {
         name: "Jira",
-        icon: JiraIcon
+        icon: JiraIcon,
+        colors: "text-white bg-[#0052CC80]"
       }
     ]
   } 
@@ -101,14 +121,12 @@ const companiesData : JobData[] = [
 ---
 
 <div class="flex w-full flex-col md:w-[760px] lg:w-[960px]">
-  <h1 class="text-3xl pl-4 font-semibold uppercase text-headline-light dark:text-headline-dark">{t('nav.experience')}</h1>
+  <h1 class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark">{t('nav.experience')}</h1>
   <div id="timeline" class="relative mt-6 mx-1 lg:mx-auto after:content-[''] after:absolute after:w-2 after:h-0 after:bg-cardBackground-light after:dark:text-headline-dark after:top-0 after:left-8 lg:after:left-1/2 after:-ml-1 after:-z-[1] after:rounded-xl ">
-    <span id="showReference" class="absolute top-1/2 left-1/2 bg-red-200"></span>
+    <span id="showReference" class="absolute top-1/4 left-1/2 bg-red-200"></span>
     {
     companiesData.map((companyData : JobData, index) => (
-      <div class="job-container opacity-0">
-        <Job jobData={companyData} isRight={index % 2 === 0 ? false : true}/>
-      </div>     
+        <Job jobData={companyData} isRight={index % 2 === 0 ? false : true}/> 
     ))
     }
   </div>
@@ -133,15 +151,8 @@ const observer = new IntersectionObserver((entries) => {
   const entry = entries[0]
   
   if(entry.isIntersecting){
-    
     const timeline= document.querySelector('#timeline')
     timeline.classList.add('after:animate-move-line')
-
-    const jobContainers = document.querySelectorAll('.job-container')
-    jobContainers.forEach((el, index) => {
-      
-      el.classList.add('animate-move-down', delayVariants[index])
-    })
   }
 
 })

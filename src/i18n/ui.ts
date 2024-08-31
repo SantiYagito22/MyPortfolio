@@ -40,7 +40,9 @@ export const ui = {
 		'acc.itchIoBut': 'Access To My Itch.io Profile',
 		'acc.sendEmail': 'Send Email',
 		'acc.copyEmail': 'Copy Email',
-		'acc.downloadCV': 'Download CV'
+		'acc.downloadCV': 'Download CV',
+		'acc.ProjectGitHub': 'Access To The Project Repository',
+		'acc.ProjectPreview': 'Project Preview'
 	},
   es: {
     'nav.home': 'Inicio',
@@ -58,6 +60,8 @@ export const ui = {
 		'acc.itchIoBut': 'Acceder A Mi Perfil De Itch.io',
 		'acc.sendEmail': 'Enviar email',
 		'acc.copyEmail': 'Copiar email',
-		'acc.downloadCV': 'Descargar CV'
+		'acc.downloadCV': 'Descargar CV',
+		'acc.ProjectGitHub': 'Acceder Al Repositorio Del Proyecto',
+		'acc.ProjectPreview': 'Vista Previa Del Proyecto'
   },
 } as const;
