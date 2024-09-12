@@ -1,0 +1,151 @@
+---
+import type { EducationData } from "@/types";
+import { Image } from "astro:assets";
+import Book from "@/components/icons/Book.astro";
+import Certificate from "@/components/icons/Certificate.astro";
+import { EducationEnum } from "@/types";
+import CodeIcon from "@/components/icons/CodeIcon.astro";
+import Building from "@/components/icons/Building.astro";
+import CalendarIcon from "@/components/icons/CalendarIcon.astro";
+import Award from "@/components/icons/Award.astro";
+
+const bachelorData: EducationData = Astro.props.bachelorData;
+const cardButtonsIcons = [
+    //Scalable for more types of information
+    { id: EducationEnum.SUMMARY, button: Book },
+    { id: EducationEnum.CERTIFICATE, button: Certificate },
+];
+---
+
+<div
+    class="relative flex flex-col items-center w-[420px] rounded-lg px-3 py-3 gap-y-4 bg-cardBackground-light dark:bg-cardBackground-dark"
+>
+    <a class="absolute top- right-0 bg-button-light dark:bg-button-dark">
+        <Certificate class="size-6 text-headline-light text-headline-dark" />
+    </a>
+    <Image
+        class="size-36 rounded-full object-center"
+        src={bachelorData.image}
+        alt={bachelorData.name}
+        loading="eager"
+    />
+    <h2 class="text-2xl font-bold text-tertiary-light dark:text-tertiary-dark">
+        {bachelorData.name}
+    </h2>
+    <div
+        class="flex flex-row items-center gap-x-10 border-t w-full pt-2 text-headline-light dark:text-headline-dark border-headline-light dark:border-headline-dark"
+    >
+        <div class="flex flex-col opacity-0 gap-y-2 summaryContent">
+            <span class="inline-flex items-center">
+                <CodeIcon
+                    class="size-5 text-tertiary-light dark:text-tertiary-dark"
+                />:
+                {bachelorData.specialty}
+            </span>
+            <span class="inline-flex items-center">
+                <Building
+                    class="size-5 text-tertiary-light dark:text-tertiary-dark"
+                />:
+                {bachelorData.university}
+            </span>
+            <span class="inline-flex items-center">
+                <CalendarIcon
+                    class="size-5 text-tertiary-light dark:text-tertiary-dark"
+                />:
+                {bachelorData.date}
+            </span>
+            <span class="inline-flex items-center">
+                <Award
+                    class="size-5 text-tertiary-light dark:text-tertiary-dark"
+                />:
+                {bachelorData.honor}
+            </span>
+        </div>
+        <div
+            class="relative size-20 overflow-hidden rounded-full border-2 border-headline-light dark:border-headline-dark summaryAverage"
+        >
+            <div
+                class="absolute size-full bg-secondary-light dark:bg-secondary-dark wave"
+            >
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold z-10"
+            >
+                {bachelorData.average}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .summaryContent {
+        transform: translateX(-20px);
+        opacity: 0;
+        animation: fadeRight 0.75s ease-out forwards;
+    }
+
+    .summaryAverage {
+        transform: translateY(-30px);
+        opacity: 0;
+        animation: fadeDown 0.75s ease-out forwards;
+        animation-delay: 0.75s;
+    }
+
+    @keyframes fadeRight {
+        0% {
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeDown {
+        0% {
+            transform: translateY(-30px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .wave {
+        animation: wave-animation 4s ease-in-out infinite;
+    }
+
+    @keyframes wave-animation {
+        0%,
+        100% {
+            clip-path: polygon(
+                0 12%,
+                15% 19%,
+                28% 22%,
+                42% 22%,
+                58% 20%,
+                73% 16%,
+                86% 13%,
+                100% 15%,
+                100% 100%,
+                0% 100%
+            );
+        }
+        50% {
+            clip-path: polygon(
+                0 24%,
+                16% 21%,
+                29% 19%,
+                43% 16%,
+                55% 18%,
+                70% 20%,
+                86% 19%,
+                100% 16%,
+                100% 100%,
+                0% 100%
+            );
+        }
+    }
+</style>

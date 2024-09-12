@@ -1,0 +1,16 @@
+---
+import type { EducationData } from "@/types";
+import DownloadIcon from "@/components/icons/DownloadIcon.astro";
+
+const bachelorData: EducationData = Astro.props.bachelorData
+---
+
+<div class="w-full gap-x-5 inline-flex justify-center items-center mt-3 text-headline-light dark:text-headline-dark">
+    <div class="p-2 font-semibold text-lg rounded-md text-buttonText-light bg-button-light dark:bg-button-dark">
+        <DownloadIcon class="size-6"/>
+    </div>
+    <span class="text-3xl text-center">/</span>
+    <div class="p-2 font-semibold text-lg rounded-md text-buttonText-light bg-button-light dark:bg-button-dark">
+        <DownloadIcon class="size-6"/>
+    </div>
+</div>

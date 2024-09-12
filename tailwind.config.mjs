@@ -10,7 +10,6 @@ export default {
         },
       },
       animation: {
-        "fade-down": "fade-down 0.3s ease-out",
         "move-line": "move-line 2s linear forwards" //Change time animation depending on the number of companies
       },
       keyframes:{

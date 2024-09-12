@@ -31,3 +31,18 @@ export interface ProjectData{
   preview?: string;
   importance: number; //1 highest 99 lowest
 }
+
+export interface EducationData {
+  image: ImageMetadata;
+  name: string;
+  specialty: string;
+  university: string;
+  date: string;
+  average: number;
+  honor: string;
+}
+
+export enum EducationEnum{
+  SUMMARY = "summary",
+  CERTIFICATE = "certificate"
+}
