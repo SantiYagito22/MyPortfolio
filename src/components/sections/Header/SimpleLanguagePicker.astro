@@ -1,10 +1,10 @@
 ---
-import { LANGUAGES } from "../../../i18n/ui";
+import { LANGUAGES } from "@/i18n/ui";
 import {
   useTranslatedPath,
   getLangFromUrl,
   useTranslations,
-} from "../../../i18n/utils";
+} from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -15,7 +15,6 @@ const currentLocaleData = LANGUAGES[lang];
 const otherLocales = Object.values(LANGUAGES).filter(
   (locale) => locale.code !== lang
 );
-
 ---
 
 <div class="relative inline-block pl-6 md:hidden">

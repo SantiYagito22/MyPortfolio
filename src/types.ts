@@ -35,11 +35,14 @@ export interface ProjectData{
 export interface EducationData {
   image: ImageMetadata;
   name: string;
-  specialty: string;
-  university: string;
-  date: string;
-  average: number;
-  honor: string;
+  certificate?: string;
+  additionalInfo?: {
+    specialty: string;
+    university: string;
+    date: string;
+    average: number;
+    honor: string;
+  }
 }
 
 export enum EducationEnum{

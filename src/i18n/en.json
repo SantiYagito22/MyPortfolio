@@ -15,5 +15,16 @@
   "FUJITSU_DESCRIPTION": "Developing, maintaining and migrating services for the ATMNow project at CaixaBank. Optimizing code, reducing the number of lines by 50%. Integrating and deploying weekly. Interacting daily with the client using agile methodologies. Proposing and implementing new solutions and logic to enhance the of service of the ATMs.",
   "FUJITSU_PROJECT": "About the project",
   "CODEKO_DESCRIPTION": "Developed a fully responsive video call web application and mobile app from scratch. Implemented styling and flow similar to Google Meet. Used WebRTC for real time communication. Used useful libraries such as CallerId to create unique video call rooms.",
-  "INTERORBITAL_DESCRIPTION": "2D survival game. Developed in a period of 9 months. Collaborated with a team of two developers and one artist."
+  "INTERORBITAL_DESCRIPTION": "2D survival game. Developed in a period of 9 months. Collaborated with a team of two developers and one artist.",
+  "UGR_DEGREE":"Degree in Computer Engineering",
+  "UGR_UNIVERSITY": "University of Granada",
+  "UGR_SPECIALTY": "Software Engineering",
+  "UGR_DATE": "September 2018 - June 2022",
+  "UGR_HONOR": "Honors in Business Internship",
+  "UMA_DEGREE": "Master In Video Games Creation",
+  "UMA_UNIVERSITY": "University of Málaga",
+  "UMA_SPECIALTY": "Programming, Design and Art",
+  "UMA_DATE": "September 2022 - January 2024",
+  "UMA_HONOR": "Best Master's Final Project",
+  "CAMBRIDGE": "C1 Advanced (Cambridge CAE)"
 }

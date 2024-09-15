@@ -42,7 +42,11 @@ export const ui = {
 		'acc.copyEmail': 'Copy Email',
 		'acc.downloadCV': 'Download CV',
 		'acc.ProjectGitHub': 'Access To The Project Repository',
-		'acc.ProjectPreview': 'Project Preview'
+		'acc.ProjectPreview': 'Project Preview',
+		'acc.certificateBut': 'Open Certificate',
+		'acc.moreInfo': 'See More Information',
+		'nav.mainCertificates': 'Main Certificates',
+		'nav.others': 'Others'
 	},
   es: {
     'nav.home': 'Inicio',
@@ -62,6 +66,10 @@ export const ui = {
 		'acc.copyEmail': 'Copiar email',
 		'acc.downloadCV': 'Descargar CV',
 		'acc.ProjectGitHub': 'Acceder Al Repositorio Del Proyecto',
-		'acc.ProjectPreview': 'Vista Previa Del Proyecto'
+		'acc.ProjectPreview': 'Vista Previa Del Proyecto',
+		'acc.certificateBut': 'Abrir Certificado',
+		'acc.moreInfo': 'Ver Más Información',
+		'nav.mainCertificates': 'Certificados Principales',
+		'nav.others': 'Otros'
   },
 } as const;
