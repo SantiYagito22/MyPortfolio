@@ -1,14 +1,24 @@
 import type { JSX } from 'astro/jsx-runtime';
 
-type Technology = {
+export interface Technology {
   name: string;
   icon: JSX.Element;
   colors: string;
 }
 
-type AdditionalInfo = {
+export interface AdditionalInfo {
   text: string;
   externalLink: string
+}
+ 
+export interface Language{
+  flag: JSX.Element;
+  level: string;
+}
+
+export interface SoftSkill{
+  icon: JSX.Element;
+  skill: string; 
 }
 
 export interface JobData{

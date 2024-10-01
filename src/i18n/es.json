@@ -25,5 +25,14 @@
   "UMA_UNIVERSITY": "Universidad de Málaga",
   "UMA_SPECIALTY": "Programación, Diseño y Arte",
   "UMA_DATE": "Septiembre 2022 - Enero 2024",
-  "UMA_HONOR": "Mejor TFM"
+  "UMA_HONOR": "Mejor TFM",
+  "NATIVE": "Nativo",
+  "ADVANCED": "Avanzado",
+  "BASIC": "Básico",
+  "TEAM_WORK": "Trabajo en equipo",
+  "COMMUNICATION": "Comunicación",
+  "TROUBLESHOOTING": "Resolución de problemas",
+  "CUSTOMER_DEALING": "Trato con cliente",
+  "LEADERSHIP": "Liderazgo",
+  "ADAPTABILITY": "Adaptabilidad"
 }

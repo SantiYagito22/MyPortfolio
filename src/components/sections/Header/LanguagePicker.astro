@@ -26,7 +26,7 @@ const otherLocales = Object.values(LANGUAGES).filter(
       aria-haspopup="true"
       aria-label={t('acc.languageButton')}
     >
-      <currentLocaleData.flag />
+      <currentLocaleData.flag class="size-6 md:size-5"/>
       {currentLocaleData.name}
       <Chevron class="-mr-1 h-5 w-5 text-headline-light dark:text-headline-dark group-hover:rotate-180 transition-all duration-200" aria-hidden="true"/>
     </button>
@@ -40,7 +40,7 @@ const otherLocales = Object.values(LANGUAGES).filter(
               class="rounded-md bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-[#ecd2b7] hover:dark:bg-[#56565b] whitespace-nowrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
               href={translatePath('/', locale.code)}
             >
-              <locale.flag />
+              <locale.flag class="size-6 md:size-5"/>
               {locale.name}
             </a>
           </li>

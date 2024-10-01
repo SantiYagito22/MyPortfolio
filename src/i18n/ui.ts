@@ -46,7 +46,10 @@ export const ui = {
 		'acc.certificateBut': 'Open Certificate',
 		'acc.moreInfo': 'See More Information',
 		'nav.mainCertificates': 'Main Certificates',
-		'nav.others': 'Others'
+		'nav.others': 'Others',
+		'nav.technicalSkills': "Technical Skills",
+		'nav.softSkills': 'Soft Skills',
+		'nav.languages': 'Languages'
 	},
   es: {
     'nav.home': 'Inicio',
@@ -70,6 +73,9 @@ export const ui = {
 		'acc.certificateBut': 'Abrir Certificado',
 		'acc.moreInfo': 'Ver Más Información',
 		'nav.mainCertificates': 'Certificados Principales',
-		'nav.others': 'Otros'
+		'nav.others': 'Otros',
+		'nav.technicalSkills': "Habilidades Técnicas",
+		'nav.softSkills': 'Habilidades Blandas',
+		'nav.languages': 'Idiomas'
   },
 } as const;

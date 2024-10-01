@@ -26,5 +26,14 @@
   "UMA_SPECIALTY": "Programming, Design and Art",
   "UMA_DATE": "September 2022 - January 2024",
   "UMA_HONOR": "Best Master's Final Project",
-  "CAMBRIDGE": "C1 Advanced (Cambridge CAE)"
+  "CAMBRIDGE": "C1 Advanced (Cambridge CAE)",
+  "NATIVE": "Native",
+  "ADVANCED": "Advanced",
+  "BASIC": "Basic",
+  "TEAM_WORK": "Team work",
+  "COMMUNICATION": "Communication",
+  "TROUBLESHOOTING": "Troubleshooting",
+  "CUSTOMER_DEALING": "Customer dealing",
+  "LEADERSHIP": "Leadership",
+  "ADAPTABILITY": "Adaptability"
 }

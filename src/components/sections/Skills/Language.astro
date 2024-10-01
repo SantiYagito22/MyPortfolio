@@ -1,0 +1,10 @@
+---
+import type { Language } from '@/types'
+
+const language = Astro.props.language
+---
+
+<div class="w-28 bg-cardBackground-light dark:bg-cardBackground-dark p-3 flex flex-col items-center justify-center rounded-sm">
+  <language.flag class="size-16"/>
+  <h5 class="text-sm font-semibold text-tertiary-light dark:text-tertiary-dark text-center">{language.level}</h5>
+</div>
