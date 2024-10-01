@@ -1,0 +1,30 @@
+---
+import { getI18N } from "@/i18n"
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<footer
+  class="flex gap-x-7 xs:gap-x-10 sm:gap-x-20 text-subHeadline-light dark:text-subHeadline-dark  py-4 justify-center text-xs md:text-base"
+>
+  <p>
+    {i18n.FOOTER} <a
+      href="https://astro.build/"
+      class="hover:underline font font-semibold"
+      target="_blank"
+      rel="noopener noreferrer">Astro</a
+    > {i18n.AND} <a
+      href="https://tailwindcss.com/"
+      class="hover:underline font-semibold"
+      target="_blank"
+      rel="noopener noreferrer">TailwindCSS</a>
+  </p>
+  <a
+    href="https://github.com/SantiYagito22/MyPortfolio"
+    class="hover:underline font-semibold"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ver repositorio en GitHub">GitHub</a
+  >
+</footer>

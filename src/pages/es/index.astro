@@ -2,13 +2,15 @@
 import Layout from "@/layouts/Layout.astro"
 import Header from '@/components/sections/Header/Header.astro'
 import Sections from "@/components/sections/Sections.astro"
+import Footer from "@/components/sections/Footer/Footer.astro"
 ---
 
 <Layout title="Portfolio Santi">
   <main>
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-16 items-center">
       <Header />
       <Sections />
+      <Footer />
     </div>
   </main>
 </Layout>
