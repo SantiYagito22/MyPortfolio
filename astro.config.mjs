@@ -17,5 +17,6 @@ export default defineConfig({
         '@': '/src'
       }
     }
-  }
+  },
+  site: 'https://smuncastro.dev',
 });
