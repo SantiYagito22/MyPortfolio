@@ -36,7 +36,7 @@ const index = Astro.props.index;
     class="size-32 sm:size-36 rounded-full object-center"
     src={bachelorData.image}
     alt={bachelorData.name}
-    loading="eager"
+    loading="lazy"
   />
   <h2 class="text-lg xs:text-xl sm:text-2xl font-bold text-tertiary-light dark:text-tertiary-dark">
     {bachelorData.name}

@@ -21,6 +21,13 @@ export interface SoftSkill{
   skill: string; 
 }
 
+export interface HeaderSection {
+  title: string;
+  label: string;
+  url: string;
+  icon: JSX.Element;
+}
+
 export interface JobData{
   logo: JSX.Element;
   workstation: string;

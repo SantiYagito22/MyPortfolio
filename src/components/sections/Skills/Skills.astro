@@ -110,7 +110,7 @@ const softSkills: SoftSkill[] = [
 ];
 ---
 
-<div class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]">
+<section class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]" id="skills">
   <h1
     class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
   >
@@ -135,7 +135,7 @@ const softSkills: SoftSkill[] = [
       >
         {t("nav.languages")}
       </h2>
-      <div class="flex flex-row gap-x-5">
+      <div class="grid grid-cols-3 gap-7">
         {
           languages.map((language: Language) => (
             <LanguageSkill language={language} />
@@ -158,4 +158,4 @@ const softSkills: SoftSkill[] = [
       </div>
     </div>
   </div>
-</div>
+</section>
