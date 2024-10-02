@@ -46,9 +46,9 @@ const sections: HeaderSection[] = [
 ]
 ---
 
-<header class="fixed flex justify-center py-4 top-0 z-10">
+<header class="fixed flex justify-center py-4 top-0 z-[999]">
   <nav
-    class="flex items-center rounded-full border-2 gap-8 text-lg font-medium py-2 px-2 md:px-4 text-headline-light dark:text-headline-dark border-subHeadline-light dark:border-subHeadline-dark md:border-0 md:flex-row lg:gap-12"
+    class="flex items-center rounded-full border-2 gap-8 text-lg font-bold dark:font-medium py-2 px-2 md:px-4 text-black dark:text-headline-dark border-subHeadline-light dark:border-subHeadline-dark md:border-0 md:flex-row lg:gap-12"
   >
     {
       sections.map((section: HeaderSection) => (
@@ -127,7 +127,7 @@ const sections: HeaderSection[] = [
   }
 
   nav {
-    @apply bg-yellow-200/80 dark:bg-gray-700/90;
+    @apply bg-yellow-100/20 dark:bg-gray-700/90;
   }
 
   @keyframes nav-shadown {
