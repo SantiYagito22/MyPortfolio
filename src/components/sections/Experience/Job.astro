@@ -1,30 +1,30 @@
 ---
-import { getI18N } from "@/i18n";
-import LabelTechnology from "@/components/LabelTechnology.astro";
-import type { JobData } from "@/types";
+import { getI18N } from '@/i18n'
+import LabelTechnology from '@/components/LabelTechnology.astro'
+import type { JobData } from '@/types'
 
-const { currentLocale } = Astro;
-const i18n = getI18N({ currentLocale });
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 
-const jobData: JobData = Astro.props.jobData;
-const isRight = Astro.props.isRight;
+const jobData: JobData = Astro.props.jobData
+const isRight = Astro.props.isRight
 ---
 
 <div
   class:list={[
     `relative pl-20 pr-5 py-3 w-full lg:px-12  lg:w-2/4`,
     {
-      "left-0 lg:left-1/2": isRight,
-      "left-0": !isRight,
+      'left-0 lg:left-1/2': isRight,
+      'left-0': !isRight,
     },
   ]}
 >
   <div
     class:list={[
-      "absolute size-12 rounded-full flex justify-center items-center top-8 z-10 bg-cardBackground-light dark:text-headline-dark",
+      'absolute size-12 rounded-full flex justify-center items-center top-8 z-10 bg-cardBackground-light dark:text-headline-dark',
       {
-        "left-2 lg:-left-6": isRight,
-        "left-2 lg:left-auto lg:-right-6": !isRight,
+        'left-2 lg:-left-6': isRight,
+        'left-2 lg:left-auto lg:-right-6': !isRight,
       },
     ]}
   >
@@ -67,12 +67,12 @@ const isRight = Astro.props.isRight;
 
     <span
       class:list={[
-        "size-0 absolute top-7 z-[1]",
-        "arrow",
+        'size-0 absolute top-7 z-[1]',
+        'arrow',
         {
-          "-left-[15px] lg:left-auto lg:-right-[15px] border-r-[15px] lg:border-r-0 border-l-0 lg:border-l-[15px] border-r-cardBackground-light dark:border-r-cardBackground-dark lg:border-l-cardBackground-light lg:dark:border-l-cardBackground-dark":
+          '-left-[15px] lg:left-auto lg:-right-[15px] border-r-[15px] lg:border-r-0 border-l-0 lg:border-l-[15px] border-r-cardBackground-light dark:border-r-cardBackground-dark lg:border-l-cardBackground-light lg:dark:border-l-cardBackground-dark':
             !isRight,
-          "-left-[15px] border-r-[15px] border-r-cardBackground-light dark:border-r-cardBackground-dark":
+          '-left-[15px] border-r-[15px] border-r-cardBackground-light dark:border-r-cardBackground-dark':
             isRight,
         },
       ]}></span>
@@ -80,7 +80,12 @@ const isRight = Astro.props.isRight;
       {
         jobData.technologies.map((Technology) => (
           <li class="flex">
-            <LabelTechnology name={Technology.name} paddings= "px-3 py-2" colors={Technology.colors} classSpan="hidden xs:inline" >
+            <LabelTechnology
+              name={Technology.name}
+              paddings="px-3 py-2"
+              colors={Technology.colors}
+              classSpan="hidden xs:inline"
+            >
               <Technology.icon class="size-6" />
             </LabelTechnology>
           </li>

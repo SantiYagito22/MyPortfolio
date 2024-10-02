@@ -1,58 +1,60 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import Moon from "../../icons/Moon.astro"
-import Sun from "../../icons/Sun.astro"
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Moon from '../../icons/Moon.astro'
+import Sun from '../../icons/Sun.astro'
 
 const url = Astro.url
-const lang = getLangFromUrl(url);
-const t = useTranslations(lang);
-
+const lang = getLangFromUrl(url)
+const t = useTranslations(lang)
 ---
 
 <label for="switcher" class="hover:opacity-80 hover:scale-105 swap">
-  <input id="switcher" class="appearance-none" type="checkbox" aria-label={t("acc.switchLight")} />
-  <Moon class="size-6 text-transparent dark:text-headline-dark md:size-10"/>
-  <Sun class="size-6 fill-current text-headline-light dark:text-transparent md:size-10"/>
+  <input
+    id="switcher"
+    class="appearance-none"
+    type="checkbox"
+    aria-label={t('acc.switchLight')}
+  />
+  <Moon class="size-6 text-transparent dark:text-headline-dark md:size-10" />
+  <Sun
+    class="size-6 fill-current text-headline-light dark:text-transparent md:size-10"
+  />
 </label>
 
-
 <script>
-  import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+  import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 
+  const url = new URL(window.location.href.toString())
+  const lang = getLangFromUrl(url)
+  const t = useTranslations(lang)
 
-  const url = new URL(window.location.href.toString());
-  const lang = getLangFromUrl(url);
-  const t = useTranslations(lang);
-  
-  const themeButton = document.querySelector("input");
+  const themeButton = document.querySelector('input')
 
- 
-  document.addEventListener("DOMContentLoaded", () => {
-    themeButton?.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.value === "dark";
+  document.addEventListener('DOMContentLoaded', () => {
+    themeButton?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.value === 'dark'
       if (isDark) {
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
+        document.documentElement.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
       } else {
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
       }
-      updateAriaLabel(!isDark ? "dark" : "light");
-    });
-  });
+      updateAriaLabel(!isDark ? 'dark' : 'light')
+    })
+  })
 
   function updateAriaLabel(currentTheme: string) {
-    if (currentTheme === "dark") {
-      themeButton.ariaLabel = t("acc.switchLight");
+    if (currentTheme === 'dark') {
+      themeButton.ariaLabel = t('acc.switchLight')
     } else {
-      themeButton.ariaLabel = t("acc.switchDark");
+      themeButton.ariaLabel = t('acc.switchDark')
     }
   }
 </script>
 
-
 <style>
-  .swap{
+  .swap {
     position: relative;
     display: inline-grid;
     user-select: none;
@@ -61,10 +63,10 @@ const t = useTranslations(lang);
   }
 
   .swap > * {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-property: transform, opacity;
-}
+    grid-column-start: 1;
+    grid-row-start: 1;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-property: transform, opacity;
+  }
 </style>

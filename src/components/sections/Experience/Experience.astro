@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-import { getI18N } from "@/i18n"
+import { getI18N } from '@/i18n'
 import Fujitsu from '@/components/icons/Fujitsu.astro'
 import Codeko from '@/components/icons/Codeko.astro'
 import type { JobData } from '@/types'
@@ -16,14 +16,13 @@ import JenkinsIcon from '@/components/icons/JenkinsIcon.astro'
 import JiraIcon from '@/components/icons/JiraIcon.astro'
 import FigmaIcon from '@/components/icons/FirgmaIcon.astro'
 
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 
-const { currentLocale } = Astro;
-const i18n = getI18N({ currentLocale });
-
-const companiesData : JobData[] = [
+const companiesData: JobData[] = [
   {
     logo: Fujitsu,
     workstation: i18n.FULL_STACK,
@@ -32,45 +31,45 @@ const companiesData : JobData[] = [
     description: i18n.FUJITSU_DESCRIPTION,
     additionalInfo: {
       text: i18n.FUJITSU_PROJECT + '...',
-      externalLink: 'https://acortar.link/wd0eHM'
+      externalLink: 'https://acortar.link/wd0eHM',
     },
     technologies: [
       {
-        name: "React", 
+        name: 'React',
         icon: ReactIcon,
-        colors: "text-white bg-[#20232A]"
+        colors: 'text-white bg-[#20232A]',
       },
       {
-        name: "JavaScript",
+        name: 'JavaScript',
         icon: JavaScriptIcon,
-        colors: "text-white bg-[#F7DF1E80]"
+        colors: 'text-white bg-[#F7DF1E80]',
       },
       {
-        name: "CSS",
+        name: 'CSS',
         icon: CSSIcon,
-        colors: "text-white bg-[#1572B680]"
+        colors: 'text-white bg-[#1572B680]',
       },
       {
-        name: "GitLab",
+        name: 'GitLab',
         icon: GitLabIcon,
-        colors: "text-white bg-[#FC6D2680]"
+        colors: 'text-white bg-[#FC6D2680]',
       },
       {
         name: 'Confluence',
         icon: ConfluenceIcon,
-        colors: "text-white bg-[#172B4D80]"
+        colors: 'text-white bg-[#172B4D80]',
       },
       {
         name: 'Jenkins',
         icon: JenkinsIcon,
-        colors: "text-white bg-[#D2493980]"
+        colors: 'text-white bg-[#D2493980]',
       },
       {
         name: 'Figma',
         icon: FigmaIcon,
-        colors: "text-white bg-[#0ACF8380]"
-      }
-    ]
+        colors: 'text-white bg-[#0ACF8380]',
+      },
+    ],
   },
   {
     logo: Codeko,
@@ -81,84 +80,85 @@ const companiesData : JobData[] = [
     description: i18n.CODEKO_DESCRIPTION,
     technologies: [
       {
-        name: "React", 
+        name: 'React',
         icon: ReactIcon,
-        colors: "text-white bg-[#20232A]"
+        colors: 'text-white bg-[#20232A]',
       },
       {
-        name: "JavaScript",
+        name: 'JavaScript',
         icon: JavaScriptIcon,
-        colors: "text-white bg-[#F7DF1E80]"
+        colors: 'text-white bg-[#F7DF1E80]',
       },
       {
-        name: "CSS",
+        name: 'CSS',
         icon: CSSIcon,
-        colors: "text-white bg-[#1572B680]"
+        colors: 'text-white bg-[#1572B680]',
       },
       {
-        name: "React Native", 
+        name: 'React Native',
         icon: ReactIcon,
-        colors: "text-white bg-[#20232A]" 
+        colors: 'text-white bg-[#20232A]',
       },
       {
-        name: "TypeScript",
+        name: 'TypeScript',
         icon: TypeScriptIcon,
-        colors: "text-white bg-[#3178C680]"
+        colors: 'text-white bg-[#3178C680]',
       },
       {
-        name: "GitHub",
+        name: 'GitHub',
         icon: GitHubIcon,
-        colors: "text-white bg-[#18171780]"
+        colors: 'text-white bg-[#18171780]',
       },
       {
-        name: "Jira",
+        name: 'Jira',
         icon: JiraIcon,
-        colors: "text-white bg-[#0052CC80]"
-      }
-    ]
-  } 
+        colors: 'text-white bg-[#0052CC80]',
+      },
+    ],
+  },
 ]
 ---
 
 <section class="flex w-full flex-col md:w-[760px] lg:w-[960px]" id="experience">
-  <h1 class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark">{t('nav.experience')}</h1>
-  <div id="timeline" class="relative mt-6 mx-1 lg:mx-auto after:content-[''] after:absolute after:w-2 after:h-0 after:bg-cardBackground-light after:dark:text-headline-dark after:top-0 after:left-8 lg:after:left-1/2 after:-ml-1 after:-z-[1] after:rounded-xl ">
+  <h1
+    class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
+  >
+    {t('nav.experience')}
+  </h1>
+  <div
+    id="timeline"
+    class="relative mt-6 mx-1 lg:mx-auto after:content-[''] after:absolute after:w-2 after:h-0 after:bg-cardBackground-light after:dark:text-headline-dark after:top-0 after:left-8 lg:after:left-1/2 after:-ml-1 after:-z-[1] after:rounded-xl"
+  >
     <span id="showReference" class="absolute top-1/4 left-1/2"></span>
     {
-    companiesData.map((companyData : JobData, index) => (
-        <Job jobData={companyData} isRight={index % 2 === 0 ? false : true}/> 
-    ))
+      companiesData.map((companyData: JobData, index) => (
+        <Job jobData={companyData} isRight={index % 2 === 0 ? false : true} />
+      ))
     }
   </div>
 </section>
 
 <script>
-
-//For the time being this will correctly work till 6 jobs :). If it happens, I will add more cases(note tailwind.config.mjs).
-const delayVariants = {
-  0: 'animation-delay-none',
-  1: 'animation-delay-1000',
-  2: 'animation-delay-2000',
-  3: 'animation-delay-3000',
-  4: 'animation-delay-4000',
-  5: 'animation-delay-5000',
-  6: 'animation-delay-6000',
-}
-
-
-const observer = new IntersectionObserver((entries) => {
-
-  const entry = entries[0]
-  
-  if(entry.isIntersecting){
-    const timeline= document.querySelector('#timeline')
-    timeline.classList.add('after:animate-move-line')
+  //For the time being this will correctly work till 6 jobs :). If it happens, I will add more cases(note tailwind.config.mjs).
+  const delayVariants = {
+    0: 'animation-delay-none',
+    1: 'animation-delay-1000',
+    2: 'animation-delay-2000',
+    3: 'animation-delay-3000',
+    4: 'animation-delay-4000',
+    5: 'animation-delay-5000',
+    6: 'animation-delay-6000',
   }
 
-})
+  const observer = new IntersectionObserver((entries) => {
+    const entry = entries[0]
 
+    if (entry.isIntersecting) {
+      const timeline = document.querySelector('#timeline')
+      timeline.classList.add('after:animate-move-line')
+    }
+  })
 
-const timeline = document.querySelector('#showReference')
-observer.observe(timeline)
-
+  const timeline = document.querySelector('#showReference')
+  observer.observe(timeline)
 </script>

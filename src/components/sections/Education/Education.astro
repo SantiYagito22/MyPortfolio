@@ -1,78 +1,84 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { getI18N } from "@/i18n"
-import type { EducationData } from "@/types"
-import UGR from "/public/images/UGR.png"
-import UMA from "/public/images/UMA.jpg"
-import Cambridge from "/public/images/Cambridge.png"
-import EducationCard from "./EducationCard.astro"
-import UGR_Certificate from "/public/documents/UGR_Certificate.pdf"
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getI18N } from '@/i18n'
+import type { EducationData } from '@/types'
+import UGR from '/public/images/UGR.png'
+import UMA from '/public/images/UMA.jpg'
+import Cambridge from '/public/images/Cambridge.png'
+import EducationCard from './EducationCard.astro'
+import UGR_Certificate from '/documents/UGR_Certificate.pdf'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const { currentLocale } = Astro;
-const i18n = getI18N({ currentLocale });
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 
 const bachelors: EducationData[] = [
-    {
-        image: UGR,
-        name: i18n.UGR_DEGREE,
-        additionalInfo: {
-            specialty: i18n.UGR_SPECIALTY,
-            university: i18n.UGR_UNIVERSITY,
-            date: i18n.UGR_DATE,
-            honor: i18n.UGR_HONOR,
-            average: 8.0,
-        },
-        certificate: UGR_Certificate
+  {
+    image: UGR,
+    name: i18n.UGR_DEGREE,
+    additionalInfo: {
+      specialty: i18n.UGR_SPECIALTY,
+      university: i18n.UGR_UNIVERSITY,
+      date: i18n.UGR_DATE,
+      honor: i18n.UGR_HONOR,
+      average: 8.0,
     },
-    {
-        image: UMA,
-        name: i18n.UMA_DEGREE,
-        additionalInfo: {
-            specialty: i18n.UMA_SPECIALTY,
-            university: i18n.UMA_UNIVERSITY,
-            date: i18n.UMA_DATE,
-            honor: i18n.UMA_HONOR,
-            average: 7.9,
-        },
-    }
-];
+    certificate: UGR_Certificate,
+  },
+  {
+    image: UMA,
+    name: i18n.UMA_DEGREE,
+    additionalInfo: {
+      specialty: i18n.UMA_SPECIALTY,
+      university: i18n.UMA_UNIVERSITY,
+      date: i18n.UMA_DATE,
+      honor: i18n.UMA_HONOR,
+      average: 7.9,
+    },
+  },
+]
 
 const others: EducationData[] = [
-    {
-        image: Cambridge,
-        name: 'C1 Advanced (Cambridge CAE)'
-    }
-    
+  {
+    image: Cambridge,
+    name: 'C1 Advanced (Cambridge CAE)',
+  },
 ]
 ---
 
-<section class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]" id="education">
-    <h1
-        class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
-    >
-        {t("nav.education")}
-    </h1>
-    <h2 class="text-2xl pl-4 underline md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark">
-        {t("nav.mainCertificates")}
-    </h2>
-    <div class="flex flex-col lg:flex-row items-start px-4 md:px-0 gap-10">
-        {
-            bachelors.map((bachelor: EducationData, key: number) => (
-                <EducationCard bachelorData={bachelor} index={key} />
-            ))
-        }
-    </div>
-    <h2 class="text-2xl pl-4 underline md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark">
-        {t("nav.others")}
-    </h2>
-    <div class="flex flex-col lg:flex-row items-start px-4 md:px-0 gap-10">
-        {
-            others.map((bachelor: EducationData, key: number) => (
-                <EducationCard bachelorData={bachelor} index={key} />
-            ))
-        }
-    </div>
+<section
+  class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]"
+  id="education"
+>
+  <h1
+    class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
+  >
+    {t('nav.education')}
+  </h1>
+  <h2
+    class="text-2xl pl-4 underline md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
+  >
+    {t('nav.mainCertificates')}
+  </h2>
+  <div class="flex flex-col lg:flex-row items-start px-4 md:px-0 gap-10">
+    {
+      bachelors.map((bachelor: EducationData, key: number) => (
+        <EducationCard bachelorData={bachelor} index={key} />
+      ))
+    }
+  </div>
+  <h2
+    class="text-2xl pl-4 underline md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
+  >
+    {t('nav.others')}
+  </h2>
+  <div class="flex flex-col lg:flex-row items-start px-4 md:px-0 gap-10">
+    {
+      others.map((bachelor: EducationData, key: number) => (
+        <EducationCard bachelorData={bachelor} index={key} />
+      ))
+    }
+  </div>
 </section>

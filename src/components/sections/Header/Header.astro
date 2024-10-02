@@ -1,54 +1,54 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import LanguagePicker from "../../sections/Header/LanguagePicker.astro";
-import SimpleLanguagePicker from "../../sections/Header/SimpleLanguagePicker.astro";
-import ThemeSwitcher from "../../sections/Header/ThemeSwitcher.astro";
-import type { HeaderSection } from "@/types";
-import HomeIcon from "@/components/icons/HomeIcon.astro";
-import Briefcase from "@/components/icons/Briefcase.astro";
-import AcademicCap from "@/components/icons/AcademicCap.astro";
-import Clipboard from "@/components/icons/Clipboard.astro";
-import SkillIcon from "@/components/icons/SkillIcon.astro";
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import LanguagePicker from '../../sections/Header/LanguagePicker.astro'
+import SimpleLanguagePicker from '../../sections/Header/SimpleLanguagePicker.astro'
+import ThemeSwitcher from '../../sections/Header/ThemeSwitcher.astro'
+import type { HeaderSection } from '@/types'
+import HomeIcon from '@/components/icons/HomeIcon.astro'
+import Briefcase from '@/components/icons/Briefcase.astro'
+import AcademicCap from '@/components/icons/AcademicCap.astro'
+import Clipboard from '@/components/icons/Clipboard.astro'
+import SkillIcon from '@/components/icons/SkillIcon.astro'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 const sections: HeaderSection[] = [
   {
-    title: t("nav.home"),
-    label: "home",
-    url: "/#home",
+    title: t('nav.home'),
+    label: 'home',
+    url: '/#home',
     icon: HomeIcon,
   },
   {
-    title: t("nav.experience"),
-    label: "experience",
-    url: "/#experience",
+    title: t('nav.experience'),
+    label: 'experience',
+    url: '/#experience',
     icon: Briefcase,
   },
   {
-    title: t("nav.projects"),
-    label: "projects",
-    url: "/#projects",
+    title: t('nav.projects'),
+    label: 'projects',
+    url: '/#projects',
     icon: Clipboard,
   },
   {
-    title: t("nav.education"),
-    label: "education",
-    url: "/#education",
+    title: t('nav.education'),
+    label: 'education',
+    url: '/#education',
     icon: AcademicCap,
   },
   {
-    title: t("nav.skills"),
-    label: "skills",
-    url: "/#skills",
+    title: t('nav.skills'),
+    label: 'skills',
+    url: '/#skills',
     icon: SkillIcon,
   },
-];
+]
 ---
 
 <header class="fixed flex justify-center py-4 top-0 z-10">
   <nav
-    class="flex items-center rounded-full border-2 gap-8 text-lg  font-medium py-2 px-2 md:px-4 text-headline-light dark:text-headline-dark border-subHeadline-light dark:border-subHeadline-dark md:border-0  md:flex-row lg:gap-12"
+    class="flex items-center rounded-full border-2 gap-8 text-lg font-medium py-2 px-2 md:px-4 text-headline-light dark:text-headline-dark border-subHeadline-light dark:border-subHeadline-dark md:border-0 md:flex-row lg:gap-12"
   >
     {
       sections.map((section: HeaderSection) => (
@@ -59,7 +59,7 @@ const sections: HeaderSection[] = [
         >
           <span class="hidden md:block">{section.title}</span>
           <span class="block md:hidden">
-            <section.icon class="size-6"/>
+            <section.icon class="size-6" />
           </span>
         </a>
       ))
@@ -74,51 +74,49 @@ const sections: HeaderSection[] = [
   </nav>
 </header>
 
-
 <script>
-
   //Credits to midudev :)
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section')
+    const navItems = document.querySelectorAll('header nav a')
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("dark:text-yellow-500");
-              item.classList.add("text-orange-700")
+            if (item.getAttribute('aria-label') == entry.target.id) {
+              item.classList.add('dark:text-yellow-500')
+              item.classList.add('text-orange-700')
             } else {
-              item.classList.remove("dark:text-yellow-500");
-              item.classList.remove("text-orange-700")
+              item.classList.remove('dark:text-yellow-500')
+              item.classList.remove('text-orange-700')
             }
-          });
+          })
         }
-      });
-    };
+      })
+    }
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: "0px",
+      rootMargin: '0px',
       threshold: 0.4,
-    });
+    })
 
     sections.forEach((section) => {
-      observer.observe(section);
-    });
+      observer.observe(section)
+    })
 
     document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
+      if (document.visibilityState === 'hidden') {
+        observer.disconnect()
       } else {
         sections.forEach((section) => {
-          observer.observe(section);
-        });
+          observer.observe(section)
+        })
       }
-    };
-  });
+    }
+  })
 </script>
 
 <style>

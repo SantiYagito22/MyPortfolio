@@ -1,18 +1,21 @@
 ---
-import { LANGUAGES } from "../../../i18n/ui";
-import { useTranslatedPath, getLangFromUrl, useTranslations } from "../../../i18n/utils";
-import Chevron from "@/components/icons/Chevron.astro";
+import { LANGUAGES } from '../../../i18n/ui'
+import {
+  useTranslatedPath,
+  getLangFromUrl,
+  useTranslations,
+} from '../../../i18n/utils'
+import Chevron from '@/components/icons/Chevron.astro'
 
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const translatePath = useTranslatedPath(lang)
+const t = useTranslations(lang)
 
-const currentLocaleData = LANGUAGES[lang];
+const currentLocaleData = LANGUAGES[lang]
 
 const otherLocales = Object.values(LANGUAGES).filter(
-  (locale) => locale.code !== lang
-);
-
+  (locale) => locale.code !== lang,
+)
 ---
 
 <div class="hidden relative text-left md:inline-block">
@@ -26,9 +29,12 @@ const otherLocales = Object.values(LANGUAGES).filter(
       aria-haspopup="true"
       aria-label={t('acc.languageButton')}
     >
-      <currentLocaleData.flag class="size-6 md:size-5"/>
+      <currentLocaleData.flag class="size-6 md:size-5" />
       {currentLocaleData.name}
-      <Chevron class="-mr-1 h-5 w-5 text-headline-light dark:text-headline-dark group-hover:rotate-180 transition-all duration-200" aria-hidden="true"/>
+      <Chevron
+        class="-mr-1 h-5 w-5 text-headline-light dark:text-headline-dark group-hover:rotate-180 transition-all duration-200"
+        aria-hidden="true"
+      />
     </button>
     <ul
       class="group-hover:block group-hover:animate-fade-down hidden pt-0.5 absolute w-full"
@@ -36,11 +42,11 @@ const otherLocales = Object.values(LANGUAGES).filter(
       {
         otherLocales.map((locale) => (
           <li class="py-[2px]" aria-hidden="true">
-            <a 
+            <a
               class="rounded-md bg-cardBackground-light dark:bg-cardBackground-dark hover:bg-[#ecd2b7] hover:dark:bg-[#56565b] whitespace-nowrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
               href={translatePath('/', locale.code)}
             >
-              <locale.flag class="size-6 md:size-5"/>
+              <locale.flag class="size-6 md:size-5" />
               {locale.name}
             </a>
           </li>

@@ -1,71 +1,71 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { getI18N } from "@/i18n";
-import type { Technology, Language, SoftSkill } from "@/types";
-import TechnicalSkill from "./TechnicalSkill.astro";
-import LanguageSkill from "./Language.astro";
-import SoftSkillPill from "./SoftSkillPill.astro";
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getI18N } from '@/i18n'
+import type { Technology, Language, SoftSkill } from '@/types'
+import TechnicalSkill from './TechnicalSkill.astro'
+import LanguageSkill from './Language.astro'
+import SoftSkillPill from './SoftSkillPill.astro'
 
-import JavaScriptIcon from "@/components/icons/JavaScriptIcon.astro";
-import CSSIcon from "@/components/icons/CSSIcon.astro";
-import ReactIcon from "@/components/icons/ReactIcon.astro";
-import TypeScriptIcon from "@/components/icons/TypeScriptIcon.astro";
-import GitIcon from "@/components/icons/GitIcon.astro";
-import HtmlIcon from "@/components/icons/HtmlIcon.astro";
-import AstroIcon from "@/components/icons/AstroIcon.astro";
-import USAFlag from "@/components/flags/USAFlag.astro";
-import SpainFlag from "@/components/flags/SpainFlag.astro";
-import FranceFlag from "@/components/flags/FranceFlag.astro";
-import WorkTeamIcon from "@/components/icons/WorkTeamIcon.astro";
-import CommunicationIcon from "@/components/icons/CommunicationIcon.astro";
-import PuzzleIcon from "@/components/icons/PuzzleIcon.astro";
-import ShakeHandsIcon from "@/components/icons/ShakeHandsIcon.astro";
-import CrownIcon from "@/components/icons/CrownIcon.astro";
-import ChameleonIcon from "@/components/icons/ChameleonIcon.astro"
+import JavaScriptIcon from '@/components/icons/JavaScriptIcon.astro'
+import CSSIcon from '@/components/icons/CSSIcon.astro'
+import ReactIcon from '@/components/icons/ReactIcon.astro'
+import TypeScriptIcon from '@/components/icons/TypeScriptIcon.astro'
+import GitIcon from '@/components/icons/GitIcon.astro'
+import HtmlIcon from '@/components/icons/HtmlIcon.astro'
+import AstroIcon from '@/components/icons/AstroIcon.astro'
+import USAFlag from '@/components/flags/USAFlag.astro'
+import SpainFlag from '@/components/flags/SpainFlag.astro'
+import FranceFlag from '@/components/flags/FranceFlag.astro'
+import WorkTeamIcon from '@/components/icons/WorkTeamIcon.astro'
+import CommunicationIcon from '@/components/icons/CommunicationIcon.astro'
+import PuzzleIcon from '@/components/icons/PuzzleIcon.astro'
+import ShakeHandsIcon from '@/components/icons/ShakeHandsIcon.astro'
+import CrownIcon from '@/components/icons/CrownIcon.astro'
+import ChameleonIcon from '@/components/icons/ChameleonIcon.astro'
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const { currentLocale } = Astro;
-const i18n = getI18N({ currentLocale });
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 
 const technicalSkills: Technology[] = [
   {
-    name: "JavaScript",
+    name: 'JavaScript',
     icon: JavaScriptIcon,
-    colors: "border-black dark:border-[#F7DF1E80]",
+    colors: 'border-black dark:border-[#F7DF1E80]',
   },
   {
-    name: "CSS",
+    name: 'CSS',
     icon: CSSIcon,
-    colors: "border-[#1572B680]",
+    colors: 'border-[#1572B680]',
   },
   {
-    name: "React",
+    name: 'React',
     icon: ReactIcon,
-    colors: "border-[#20232A] dark:border-[#61DAFB]",
+    colors: 'border-[#20232A] dark:border-[#61DAFB]',
   },
   {
-    name: "TypeScript",
+    name: 'TypeScript',
     icon: TypeScriptIcon,
-    colors: "border-[#3178C680]",
+    colors: 'border-[#3178C680]',
   },
   {
-    name: "Git",
+    name: 'Git',
     icon: GitIcon,
-    colors: "border-[#F05033]",
+    colors: 'border-[#F05033]',
   },
   {
-    name: "HTML",
+    name: 'HTML',
     icon: HtmlIcon,
-    colors: "border-[#E34F26]",
+    colors: 'border-[#E34F26]',
   },
   {
-    name: "Astro",
+    name: 'Astro',
     icon: AstroIcon,
-    colors: "border-[#FF5D01]",
+    colors: 'border-[#FF5D01]',
   },
-];
+]
 
 const languages: Language[] = [
   {
@@ -80,7 +80,7 @@ const languages: Language[] = [
     flag: FranceFlag,
     level: `${i18n.BASIC}-A2`,
   },
-];
+]
 
 const softSkills: SoftSkill[] = [
   {
@@ -101,27 +101,30 @@ const softSkills: SoftSkill[] = [
   },
   {
     icon: CrownIcon,
-    skill: i18n.LEADERSHIP
+    skill: i18n.LEADERSHIP,
   },
   {
     icon: ChameleonIcon,
-    skill: i18n.ADAPTABILITY
-  }
-];
+    skill: i18n.ADAPTABILITY,
+  },
+]
 ---
 
-<section class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]" id="skills">
+<section
+  class="flex w-full flex-col gap-y-10 md:w-[760px] lg:w-[960px]"
+  id="skills"
+>
   <h1
     class="text-3xl pl-4 md:pl-0 font-semibold uppercase text-headline-light dark:text-headline-dark"
   >
-    {t("nav.skills")}
+    {t('nav.skills')}
   </h1>
-  <div class="flex flex-col  sm:flex-row sm:gap-x-8 gap-y-5 px-4 lg:px-0">
+  <div class="flex flex-col sm:flex-row sm:gap-x-8 gap-y-5 px-4 lg:px-0">
     <div class="w-full sm:w-1/2 flex flex-col gap-y-6">
       <h2
         class="text-xl underline font-semibold uppercase text-headline-light dark:text-headline-dark"
       >
-        {t("nav.technicalSkills")}
+        {t('nav.technicalSkills')}
       </h2>
       <div class="grid grid-cols-2 gap-7">
         {
@@ -131,9 +134,9 @@ const softSkills: SoftSkill[] = [
         }
       </div>
       <h2
-        class="text-xl  underline font-semibold uppercase text-headline-light dark:text-headline-dark"
+        class="text-xl underline font-semibold uppercase text-headline-light dark:text-headline-dark"
       >
-        {t("nav.languages")}
+        {t('nav.languages')}
       </h2>
       <div class="grid grid-cols-3 gap-7">
         {
@@ -147,7 +150,7 @@ const softSkills: SoftSkill[] = [
       <h2
         class="text-xl underline font-semibold uppercase text-headline-light dark:text-headline-dark"
       >
-        {t("nav.softSkills")}
+        {t('nav.softSkills')}
       </h2>
       <div class="grid grid-cols-3 sm:grid-cols-2 gap-7">
         {

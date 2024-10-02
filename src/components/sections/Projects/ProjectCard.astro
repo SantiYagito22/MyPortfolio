@@ -1,24 +1,29 @@
 ---
-import { Image } from "astro:assets"
-import type { ProjectData } from "@/types"
-import LabelTechnology from "@/components/LabelTechnology.astro"
-import LinkButton from "@/components/LinkButton.astro"
-import GitHubIcon from "@/components/icons/GitHubIcon.astro"
+import { Image } from 'astro:assets'
+import type { ProjectData } from '@/types'
+import LabelTechnology from '@/components/LabelTechnology.astro'
+import LinkButton from '@/components/LinkButton.astro'
+import GitHubIcon from '@/components/icons/GitHubIcon.astro'
 import LinkIcon from '@/components/icons/LinkIcon.astro'
-import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { getI18N } from "@/i18n"
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getI18N } from '@/i18n'
 
-const projectData: ProjectData = Astro.props.projectData;
+const projectData: ProjectData = Astro.props.projectData
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const { currentLocale } = Astro;
-const i18n = getI18N({ currentLocale });
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
-<article class="relative rounded-sm md:w-full flex flex-col items-center border border-black dark:border-white md:flex-row md:items-stretch ">
-  <span class="absolute rounded-full border border-black dark:border-white size-12 bg-cardBackground-light dark:bg-cardBackground-dark -top-5 -left-5 flex justify-center items-center text-2xl font-bold text-tertiary-light dark:text-tertiary-dark z-50">{Astro.props.index + 1}</span>
+<article
+  class="relative rounded-sm md:w-full flex flex-col items-center border border-black dark:border-white md:flex-row md:items-stretch"
+>
+  <span
+    class="absolute rounded-full border border-black dark:border-white size-12 bg-cardBackground-light dark:bg-cardBackground-dark -top-5 -left-5 flex justify-center items-center text-2xl font-bold text-tertiary-light dark:text-tertiary-dark z-50"
+    >{Astro.props.index + 1}</span
+  >
   <div class="w-full md:w-1/2">
     <div class="overflow-hidden h-64">
       <Image
@@ -53,17 +58,25 @@ const i18n = getI18N({ currentLocale });
     <p class="text-base w-3/4 text-paragraph-light dark:text-paragraph-dark">
       {projectData.description}
     </p>
-    <footer class="flex flex-col gap-y-3 gap-x-4 xs:flex-row mt-3 ">
+    <footer class="flex flex-col gap-y-3 gap-x-4 xs:flex-row mt-3">
       {
         projectData.github && (
-          <LinkButton content="GitHub" href={projectData.github} aria-label={t('acc.ProjectGitHub')}>
-            <GitHubIcon class="size-6"/>
+          <LinkButton
+            content="GitHub"
+            href={projectData.github}
+            aria-label={t('acc.ProjectGitHub')}
+          >
+            <GitHubIcon class="size-6" />
           </LinkButton>
         )
       }
       {
         projectData.preview && (
-          <LinkButton content={i18n.PREVIEW} href={projectData.preview} aria-label={t('acc.ProjectPreview')}>
+          <LinkButton
+            content={i18n.PREVIEW}
+            href={projectData.preview}
+            aria-label={t('acc.ProjectPreview')}
+          >
             <LinkIcon class="size-6" />
           </LinkButton>
         )
