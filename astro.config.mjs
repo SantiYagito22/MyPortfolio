@@ -18,6 +18,5 @@ export default defineConfig({
       }
     }
   },
-  site: 'https://www.smuncastro.dev',
-  base: '/my-portfolio/'
+  site: 'https://smuncastro.dev',
 });
