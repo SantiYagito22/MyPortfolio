@@ -18,6 +18,6 @@ export default defineConfig({
       }
     }
   },
-  site: 'https://smuncastro.dev',
-  base: '/MyPortfolio'
+  site: 'https://www.smuncastro.dev',
+  base: '/MyPortfolio/'
 });
