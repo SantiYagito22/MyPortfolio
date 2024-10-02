@@ -19,5 +19,5 @@ export default defineConfig({
     }
   },
   site: 'https://www.smuncastro.dev',
-  base: '/MyPortfolio/'
+  base: '/my-portfolio/'
 });
