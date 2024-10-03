@@ -19,4 +19,5 @@ export default defineConfig({
     }
   },
   site: 'https://smuncastro.dev',
+
 });
