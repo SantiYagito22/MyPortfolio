@@ -11,13 +11,6 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  vite: {
-    resolve: {
-      alias: {
-        '@': new URL('./src', import.meta.url).pathname
-      }
-    }
-  },
-  site: 'https://www.smuncastro.dev/',
+  site: 'https://www.smuncastro.dev',
 
 });
