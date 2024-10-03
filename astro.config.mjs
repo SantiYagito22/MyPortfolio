@@ -14,7 +14,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': '/src'
+        '@': new URL('./src', import.meta.url).pathname
       }
     }
   },
