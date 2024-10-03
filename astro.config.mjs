@@ -12,5 +12,5 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  site: 'https://smuncastro.dev',
+  site: 'https://www.smuncastro.dev/',
 });
