@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
@@ -15,9 +14,10 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': path.resolve('./src')
+        '@': './src'
       }
     }
   },
-  site: 'https://www.smuncastro.dev',
+  site: 'https://www.smuncastro.dev/',
+
 });
